@@ -1,0 +1,20 @@
+.course-view {
+  height: 100%; }
+
+.courseList-view {
+  padding: 5%; }
+  .courseList-view .courseList-row .courseList-item {
+    padding: 30rpx;
+    margin-top: 30rpx;
+    display: flex;
+    height: 160rpx;
+    width: 90%;
+    background: white; }
+    .courseList-view .courseList-row .courseList-item .courseList-content {
+      display: block;
+      padding: 22rpx;
+      margin-left: 20rpx; }
+      .courseList-view .courseList-row .courseList-item .courseList-content .courseList-description {
+        font-size: 25rpx;
+        color: #98999c; }
+

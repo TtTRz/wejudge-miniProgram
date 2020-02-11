@@ -1,0 +1,36 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="account">
+        <view class="account-header">
+            <view class="header-back">
+                <view class="header-top">
+                    <at-avatar compid="{{$compid__14}}"></at-avatar>
+                    <view class="account-content">
+                        <view class="account-nickname">{{accountMessage.nickname}}</view>
+                        <view class="account-credit">{{anonymousState__temp}}</view>
+                        <view class="account-school">北京示范大学珠海分校</view>
+                    </view>
+                </view>
+                <view class="account-grid">
+                    <view class="account-item">
+                        <view class="account-num">{{accountMessage.counter.courses_learned}}</view>
+                        <view class="account-tittle">已学课程</view>
+                    </view>
+                    <view class="account-item">
+                        <view class="account-num">{{accountMessage.counter.code_accepted}} / {{accountMessage.counter.code_visited}}</view>
+                        <view class="account-tittle">代码通过数</view>
+                    </view>
+                    <view class="account-item">
+                        <view class="account-num">{{accountMessage.counter.judge_status_accepted}} / {{accountMessage.counter.judge_status_submission}}</view>
+                        <view class="account-tittle">提交评测</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="account-list">
+            <at-list>
+                <at-list-item compid="{{$compid__15}}"></at-list-item>
+                <at-list-item compid="{{$compid__16}}"></at-list-item>
+            </at-list>
+        </view>
+    </view>
+</block>

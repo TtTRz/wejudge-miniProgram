@@ -1,0 +1,2 @@
+<block wx:if="{{$taroCompReady}}"><text> wejudge排队中</text>
+</block>

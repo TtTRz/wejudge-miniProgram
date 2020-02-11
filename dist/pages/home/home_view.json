@@ -1,0 +1,1 @@
+{"usingComponents":{"course":"../education/course/course_list","account":"../account/account_view","tar-bar":"../../components/widgets/tarbar"},"enablePullDownRefresh":true}

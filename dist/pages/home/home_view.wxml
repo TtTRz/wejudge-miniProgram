@@ -1,0 +1,20 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="home-view">
+        <view class="home-content">
+            <block wx:if="{{currentTab === 0}}">
+                <view class="home-view"></view>
+            </block>
+            <block wx:if="{{currentTab === 1}}">
+                <view class="course-view">
+                    <course></course>
+                </view>
+            </block>
+            <block wx:if="{{currentTab === 2}}">
+                <view class="account-view">
+                    <account compid="{{$compid__5}}"></account>
+                </view>
+            </block>
+        </view>
+        <tar-bar compid="{{$compid__6}}"></tar-bar>
+    </view>
+</block>

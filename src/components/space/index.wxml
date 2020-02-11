@@ -1,0 +1,6 @@
+<view class='collection'>
+
+    <image src='{{collected?"images/heart-fill.png":"images/heart.png"}}'></image>
+
+</view>
+

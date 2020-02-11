@@ -1,0 +1,12 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="welcome-view">
+        <at-avatar compid="{{$compid__0}}"></at-avatar>
+        <view class="welcome-form">
+            <at-form>
+                <at-input compid="{{$compid__1}}"></at-input>
+                <at-input compid="{{$compid__2}}"></at-input>
+            </at-form>
+            <at-button compid="{{$compid__3}}">登陆</at-button>
+        </view>
+    </view>
+</block>

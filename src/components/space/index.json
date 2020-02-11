@@ -1,0 +1,9 @@
+{
+
+  "component": true,
+  "usingComponents": {
+    "course_list": "/pages/course/course_list.js"
+  }
+}
+
+

@@ -1,0 +1,9 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="course-view">
+        <view class="course-content">
+            <view class="at-article__h1">名称</view>
+            <view class="at-article__p">222</view>
+            <view class="at-article__info">teacher school</view>
+        </view>
+    </view>
+</block>

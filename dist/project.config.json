@@ -1,0 +1,31 @@
+{
+  "miniprogramRoot": "./",
+  "projectname": "wejudge",
+  "description": "",
+  "appid": "wx487c28d097adb5f8",
+  "setting": {
+    "urlCheck": false,
+    "es6": false,
+    "postcss": false,
+    "preloadBackgroundData": false,
+    "minified": false,
+    "newFeature": true,
+    "coverView": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    }
+  },
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "libVersion": "2.10.1",
+  "condition": {}
+}
