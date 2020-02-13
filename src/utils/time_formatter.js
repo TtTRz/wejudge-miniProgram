@@ -28,6 +28,16 @@ export const nowTime = () => {
 export const createMoment = (timestamp) => {
   return moment(timestamp * MILLISECOND).utcOffset(defaultTimezoneOffset);
 };
+export const formatTime = (timestamp, key) => {
+  const dt = createMoment(timestamp);
+
+  return dt.format(get(FORMAT_PATTERN, `${i18nNamespace}.${key}`, ''));
+};
+
+export const formatTimeFromNow = (timestamp) => {
+  const dt = createMoment(timestamp);
+  return dt.fromNow();
+};
 
 
 export const diffTimeSeconds = (time1, time2 = undefined) => {

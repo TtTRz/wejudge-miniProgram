@@ -7,10 +7,8 @@ export  const getSchool = (payload) =>{
 
   const pattern = compile(API.SCHOOL.SCHOOL);
   return Request({
-    url:pattern({sid:payload.schoolId}),
+    url:pattern({sid:payload.sid}),
     method: 'get',
-    data:{
-    }
   })
 };
 

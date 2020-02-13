@@ -1,9 +1,9 @@
-(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["pages/home/home_view"],{
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["components/education/course/course_lesson"],{
 
-/***/ "./src/pages/home/home_view.jsx":
-/*!**************************************!*\
-  !*** ./src/pages/home/home_view.jsx ***!
-  \**************************************/
+/***/ "./src/components/education/course/course_lesson.jsx":
+/*!***********************************************************!*\
+  !*** ./src/components/education/course/course_lesson.jsx ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -37,50 +37,52 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var mapStateToProps = function mapStateToProps(state, props) {
-  var isLoading = state.loading.models['account'];
   return {
-    account: state.account,
-    isLoading: isLoading
+    lesson: state.course.lessonList
   };
 };
 
-var HomeView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_temp2 = _class2 = function (_Taro$PureComponent) {
-  _inherits(HomeView, _Taro$PureComponent);
+var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_temp2 = _class2 = function (_Taro$PureComponent) {
+  _inherits(CourseView, _Taro$PureComponent);
 
-  function HomeView() {
+  function CourseView() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, HomeView);
+    _classCallCheck(this, CourseView);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = HomeView.__proto__ || Object.getPrototypeOf(HomeView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["$compid__5", "$compid__6", "currentTab", "current", "account", "isLoading"], _this.config = {
-      enablePullDownRefresh: true
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CourseView.__proto__ || Object.getPrototypeOf(CourseView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray12", "data", "current", "open", "dispatch", "courseId", "lesson"], _this.config = {
+      enablePullDownRefresh: true,
+      navigationBarTitleText: ''
+
     }, _this.state = {
-      currentTab: 0
-    }, _this.state = {}, _this.handleTabChange = function (value) {
-      _this.setState({
-        currentTab: value
-      });
-    }, _this.customComponents = ["Course", "Account", "TarBar"], _temp), _possibleConstructorReturn(_this, _ret);
+      current: 0,
+      open: true
+    }, _this.customComponents = ["AtAccordion", "AtList", "AtListItem"], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(HomeView, [{
+  _createClass(CourseView, [{
     key: "_constructor",
-    value: function _constructor() {
-      _get(HomeView.prototype.__proto__ || Object.getPrototypeOf(HomeView.prototype), "_constructor", this).apply(this, arguments);
-      this.state = {
-        current: 0
-      };
+    value: function _constructor(props) {
+      _get(CourseView.prototype.__proto__ || Object.getPrototypeOf(CourseView.prototype), "_constructor", this).call(this, props);
+
       this.$$refs = new _taroWeapp2.default.RefsArray();
     }
   }, {
     key: "componentWillMount",
-    value: function componentWillMount() {}
+    value: function componentWillMount() {
+      this.props.dispatch({
+        type: 'course/getLessonList',
+        payload: {
+          courseId: this.props.courseId
+        }
+      });
+    }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {}
@@ -93,45 +95,80 @@ var HomeView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_tem
   }, {
     key: "_createData",
     value: function _createData() {
+      var _this2 = this;
+
       this.__state = arguments[0] || this.state || {};
       this.__props = arguments[1] || this.props || {};
       var __isRunloopRef = arguments[2];
       var __prefix = this.$prefix;
       ;
 
-      var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "$compid__5"),
-          _genCompid2 = _slicedToArray(_genCompid, 2),
-          $prevCompid__5 = _genCompid2[0],
-          $compid__5 = _genCompid2[1];
+      var data = this.__props.lesson.data;
 
-      var _genCompid3 = (0, _taroWeapp.genCompid)(__prefix + "$compid__6"),
-          _genCompid4 = _slicedToArray(_genCompid3, 2),
-          $prevCompid__6 = _genCompid4[0],
-          $compid__6 = _genCompid4[1];
+      var loopArray12 = data.map(function (items, _anonIdx3) {
+        items = {
+          $original: (0, _taroWeapp.internal_get_original)(items)
+        };
+        var $anonymousCallee__8 = items.$original.children.map(function (item, _anonIdx) {
+          item = {
+            $original: (0, _taroWeapp.internal_get_original)(item)
+          };
 
-      this.__state.currentTab === 2 && _taroWeapp.propsManager.set({
-        "accountMessage": this.__props.account.data
-      }, $compid__5, $prevCompid__5);
-      _taroWeapp.propsManager.set({
-        "current": this.__state.currentTab,
-        "onClick": this.handleTabChange,
-        "onTabChange": this.handleTabChange,
-        "isLoading": this.__props.isLoading
-      }, $compid__6, $prevCompid__6);
+          console.log("item", item.$original);
+
+          var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "cizzzzzzzz" + _anonIdx3 + "-" + _anonIdx, true),
+              _genCompid2 = _slicedToArray(_genCompid, 2),
+              $prevCompid__155 = _genCompid2[0],
+              $compid__155 = _genCompid2[1];
+
+          _taroWeapp.propsManager.set({
+            "title": item.$original.title
+          }, $compid__155, $prevCompid__155);
+          return {
+            $compid__155: $compid__155,
+            $original: item.$original
+          };
+        });
+
+        var _genCompid3 = (0, _taroWeapp.genCompid)(__prefix + "cjzzzzzzzz" + _anonIdx3, true),
+            _genCompid4 = _slicedToArray(_genCompid3, 2),
+            $prevCompid__156 = _genCompid4[0],
+            $compid__156 = _genCompid4[1];
+
+        _taroWeapp.propsManager.set({
+          "open": _this2.__state.open,
+          "title": items.$original.title
+        }, $compid__156, $prevCompid__156);
+
+        var _genCompid5 = (0, _taroWeapp.genCompid)(__prefix + "dazzzzzzzz" + _anonIdx3, true),
+            _genCompid6 = _slicedToArray(_genCompid5, 2),
+            $prevCompid__157 = _genCompid6[0],
+            $compid__157 = _genCompid6[1];
+
+        _taroWeapp.propsManager.set({
+          "hasBorder": false
+        }, $compid__157, $prevCompid__157);
+        return {
+          $anonymousCallee__8: $anonymousCallee__8,
+          $compid__156: $compid__156,
+          $compid__157: $compid__157,
+          $original: items.$original
+        };
+      });
       Object.assign(this.__state, {
-        $compid__5: $compid__5,
-        $compid__6: $compid__6
+        loopArray12: loopArray12,
+        data: data
       });
       return this.__state;
     }
   }]);
 
-  return HomeView;
-}(_taroWeapp2.default.PureComponent), _class2.$$events = [], _class2.propTypes = {}, _class2.$$componentPath = "pages/home/home_view", _temp2)) || _class);
-exports.default = HomeView;
+  return CourseView;
+}(_taroWeapp2.default.PureComponent), _class2.$$events = [], _class2.propTypes = {}, _class2.$$componentPath = "components/education/course/course_lesson", _temp2)) || _class);
+exports.default = CourseView;
 
-Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(HomeView, true));
+Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(CourseView));
 
 /***/ })
 
-},[["./src/pages/home/home_view.jsx","runtime","vendors"]]]);
+},[["./src/components/education/course/course_lesson.jsx","runtime","vendors"]]]);

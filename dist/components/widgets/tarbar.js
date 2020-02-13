@@ -1,9 +1,9 @@
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["components/widgets/tarbar"],{
 
-/***/ "./src/components/widgets/tarbar.js":
-/*!******************************************!*\
-  !*** ./src/components/widgets/tarbar.js ***!
-  \******************************************/
+/***/ "./src/components/widgets/tarbar.jsx":
+/*!*******************************************!*\
+  !*** ./src/components/widgets/tarbar.jsx ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -110,4 +110,4 @@ Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/
 
 /***/ })
 
-},[["./src/components/widgets/tarbar.js","runtime","vendors"]]]);
+},[["./src/components/widgets/tarbar.jsx","runtime","vendors"]]]);

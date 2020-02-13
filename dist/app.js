@@ -89,7 +89,7 @@ var _App = function (_BaseComponent) {
       window: {
         backgroundTextStyle: 'light',
         navigationBarBackgroundColor: '#fff',
-        navigationBarTitleText: 'wejudge小程序',
+        // navigationBarTitleText: 'wejudge小程序',
         navigationBarTextStyle: 'black'
       }
     };
@@ -177,7 +177,10 @@ var API = exports.API = {
   },
   COURSE: {
     LIST: '/education/courses/_mget',
-    COURSE: '/education/courses/:cid'
+    COURSE: '/education/courses/:cid',
+    ANNOUNCEMENTSLIST: '/education/courses/:cid/announcements',
+    LESSONLIST: '/education/courses/:cid/lessons/list',
+    DISUSSES: '/education/courses/:cid/discusses/list'
   },
   SCHOOL: {
     SCHOOL: '/education/schools/:sid'
@@ -461,9 +464,7 @@ exports.default = {
 
             case 2:
               req = _context2.sent;
-
-              console.log("req", req);
-              _context2.next = 6;
+              _context2.next = 5;
               return put({
                 type: 'save',
                 payload: {
@@ -471,7 +472,7 @@ exports.default = {
                 }
               });
 
-            case 6:
+            case 5:
             case 'end':
               return _context2.stop();
           }
@@ -493,9 +494,7 @@ exports.default = {
 
             case 2:
               req = _context3.sent;
-
-              console.log("req", req);
-              _context3.next = 6;
+              _context3.next = 5;
               return put({
                 type: 'save',
                 payload: {
@@ -503,21 +502,129 @@ exports.default = {
                 }
               });
 
-            case 6:
+            case 5:
               return _context3.abrupt('return', req.data);
 
-            case 7:
+            case 6:
             case 'end':
               return _context3.stop();
           }
         }
       }, getCourseMessage, this);
+    }),
+
+
+    //获取课程公告
+    getAnnouncementsList: /*#__PURE__*/_regenerator2.default.mark(function getAnnouncementsList(_ref7, _ref8) {
+      var payload = _ref7.payload;
+      var call = _ref8.call,
+          put = _ref8.put,
+          select = _ref8.select;
+      var req;
+      return _regenerator2.default.wrap(function getAnnouncementsList$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return call(course.getAnnouncementsList, payload);
+
+            case 2:
+              req = _context4.sent;
+              _context4.next = 5;
+              return put({
+                type: 'save',
+                payload: {
+                  announcementsList: req
+                }
+              });
+
+            case 5:
+              return _context4.abrupt('return', req);
+
+            case 6:
+            case 'end':
+              return _context4.stop();
+          }
+        }
+      }, getAnnouncementsList, this);
+    }),
+
+
+    //获取课程课堂列表
+    getLessonList: /*#__PURE__*/_regenerator2.default.mark(function getLessonList(_ref9, _ref10) {
+      var payload = _ref9.payload;
+      var call = _ref10.call,
+          put = _ref10.put,
+          select = _ref10.select;
+      var req;
+      return _regenerator2.default.wrap(function getLessonList$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.next = 2;
+              return call(course.getLessonList, payload);
+
+            case 2:
+              req = _context5.sent;
+              _context5.next = 5;
+              return put({
+                type: 'save',
+                payload: {
+                  lessonList: req
+                }
+              });
+
+            case 5:
+              return _context5.abrupt('return', req);
+
+            case 6:
+            case 'end':
+              return _context5.stop();
+          }
+        }
+      }, getLessonList, this);
+    }),
+
+
+    //获取课程讨论
+    getDiscusses: /*#__PURE__*/_regenerator2.default.mark(function getDiscusses(_ref11, _ref12) {
+      var payload = _ref11.payload;
+      var call = _ref12.call,
+          put = _ref12.put,
+          select = _ref12.select;
+      var req;
+      return _regenerator2.default.wrap(function getDiscusses$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.next = 2;
+              return call(course.getDiscusses, payload);
+
+            case 2:
+              req = _context6.sent;
+              _context6.next = 5;
+              return put({
+                type: 'save',
+                payload: {
+                  discusses: req.data
+                }
+              });
+
+            case 5:
+              return _context6.abrupt('return', req.data);
+
+            case 6:
+            case 'end':
+              return _context6.stop();
+          }
+        }
+      }, getDiscusses, this);
     })
   },
 
   reducers: {
-    save: function save(state, _ref7) {
-      var payload = _ref7.payload;
+    save: function save(state, _ref13) {
+      var payload = _ref13.payload;
 
       return _extends({}, state, payload);
     }
@@ -546,6 +653,12 @@ var _regenerator = __webpack_require__(/*! babel-runtime/regenerator */ "./node_
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _school = __webpack_require__(/*! ../../service/education/school */ "./src/service/education/school.js");
+
+var school = _interopRequireWildcard(_school);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -577,7 +690,7 @@ exports.default = {
               return put({
                 type: 'save',
                 payload: {
-                  // school: req.data.course
+                  school: req.data
                 }
               });
 
@@ -705,7 +818,7 @@ var getAccount = exports.getAccount = function getAccount(payload) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getCourseMessage = exports.getCoursetList = exports.getDashboard = undefined;
+exports.getDiscusses = exports.getLessonList = exports.getAnnouncementsList = exports.getCourseMessage = exports.getCoursetList = exports.getDashboard = undefined;
 
 var _request = __webpack_require__(/*! ../../utils/request */ "./src/utils/request.js");
 
@@ -740,14 +853,84 @@ var getCoursetList = exports.getCoursetList = function getCoursetList(payload) {
 
 //获取课程详细信息
 var getCourseMessage = exports.getCourseMessage = function getCourseMessage(payload) {
-  console.log("getCourseList", payload.ids);
   var pattern = (0, _pathToRegexp.compile)(_apis.API.COURSE.COURSE);
   return (0, _request2.default)({
     url: pattern({ cid: payload.courseId }),
     method: 'get',
+    data: {}
+  });
+};
+
+//获取课程公告
+var getAnnouncementsList = exports.getAnnouncementsList = function getAnnouncementsList(payload) {
+  var pattern = (0, _pathToRegexp.compile)(_apis.API.COURSE.ANNOUNCEMENTSLIST);
+  console.log("service", payload);
+  return (0, _request2.default)({
+    url: pattern({ cid: payload.courseId }),
+    method: 'get',
     data: {
-      ids: payload.ids
+      page: 1,
+      total: 0,
+      limit: 99
     }
+  });
+};
+
+//获取课程课堂列表
+var getLessonList = exports.getLessonList = function getLessonList(payload) {
+  var pattern = (0, _pathToRegexp.compile)(_apis.API.COURSE.LESSONLIST);
+  return (0, _request2.default)({
+    url: pattern({ cid: payload.courseId }),
+    method: 'get',
+    data: {}
+  });
+};
+
+//获取课程讨论
+var getDiscusses = exports.getDiscusses = function getDiscusses(payload) {
+  var pattern = (0, _pathToRegexp.compile)(_apis.API.COURSE.DISUSSES);
+  console.log("service", payload);
+  return (0, _request2.default)({
+    url: pattern({ cid: payload.courseId }),
+    method: 'get',
+    data: {}
+  });
+};
+
+/***/ }),
+
+/***/ "./src/service/education/school.js":
+/*!*****************************************!*\
+  !*** ./src/service/education/school.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getSchool = undefined;
+
+var _request = __webpack_require__(/*! ../../utils/request */ "./src/utils/request.js");
+
+var _request2 = _interopRequireDefault(_request);
+
+var _apis = __webpack_require__(/*! ../../constants/apis */ "./src/constants/apis.js");
+
+var _pathToRegexp = __webpack_require__(/*! path-to-regexp */ "./node_modules/path-to-regexp/dist/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//获取课程详细信息
+var getSchool = exports.getSchool = function getSchool(payload) {
+
+  var pattern = (0, _pathToRegexp.compile)(_apis.API.SCHOOL.SCHOOL);
+  return (0, _request2.default)({
+    url: pattern({ sid: payload.sid }),
+    method: 'get'
   });
 };
 

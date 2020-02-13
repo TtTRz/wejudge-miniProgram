@@ -10,6 +10,9 @@ export const API = {
     COURSE: {
         LIST:'/education/courses/_mget',
         COURSE:'/education/courses/:cid',
+        ANNOUNCEMENTSLIST:'/education/courses/:cid/announcements',
+        LESSONLIST:'/education/courses/:cid/lessons/list',
+        DISUSSES:'/education/courses/:cid/discusses/list',
     },
     SCHOOL:{
       SCHOOL:'/education/schools/:sid'

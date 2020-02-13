@@ -1,0 +1,9 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="lesson-view">
+        <at-accordion wx:for="{{loopArray12}}" wx:for-item="items" wx:for-index="_anonIdx4" compid="{{items.$compid__156}}">
+            <at-list compid="{{items.$compid__157}}">
+                <at-list-item wx:for="{{items.$anonymousCallee__8}}" wx:for-item="item" wx:for-index="_anonIdx2" compid="{{item.$compid__155}}"></at-list-item>
+            </at-list>
+        </at-accordion>
+    </view>
+</block>

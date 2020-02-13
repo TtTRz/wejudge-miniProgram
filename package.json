@@ -56,7 +56,8 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "taro-ui": "^2.2.4"
+    "taro-ui": "^2.2.4",
+    "prop-types": "latest"
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.8.3",

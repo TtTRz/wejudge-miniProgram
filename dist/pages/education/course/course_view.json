@@ -1,1 +1,1 @@
-{"usingComponents":{},"enablePullDownRefresh":true,"navigationBarTitleText":""}
+{"usingComponents":{"at-nav-bar":"../../../npm/taro-ui/dist/weapp/components/nav-bar/index","at-tabs":"../../../npm/taro-ui/dist/weapp/components/tabs/index","at-tabs-pane":"../../../npm/taro-ui/dist/weapp/components/tabs-pane/index","announcements":"../../../components/education/course/course_announcements","lesson":"../../../components/education/course/course_lesson","discusses":"../../../components/education/course/course_discusses"},"enablePullDownRefresh":true,"navigationBarTitleText":""}

@@ -1,9 +1,9 @@
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["pages/education/course/course_view"],{
 
-/***/ "./src/pages/education/course/course_view.js":
-/*!***************************************************!*\
-  !*** ./src/pages/education/course/course_view.js ***!
-  \***************************************************/
+/***/ "./src/pages/education/course/course_view.jsx":
+/*!****************************************************!*\
+  !*** ./src/pages/education/course/course_view.jsx ***!
+  \****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13,6 +13,8 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -37,9 +39,11 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var mapStateToProps = function mapStateToProps(state, props) {
-  console.log("state", state);
   return {
-    course: state.school.course
+    course: state.course.course,
+    school: state.school.school,
+    teacher: state.account.message,
+    announcements: state.course.announcements
   };
 };
 
@@ -57,12 +61,14 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CourseView.__proto__ || Object.getPrototypeOf(CourseView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["teacher", "dispatch"], _this.config = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CourseView.__proto__ || Object.getPrototypeOf(CourseView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["$compid__201", "$compid__202", "$compid__203", "$compid__204", "$compid__205", "$compid__206", "$compid__207", "$compid__208", "current", "cid", "dispatch", "course"], _this.config = {
       enablePullDownRefresh: true,
       navigationBarTitleText: ''
+
     }, _this.state = {
-      teacher: ''
-    }, _this.customComponents = [], _temp), _possibleConstructorReturn(_this, _ret);
+      current: 0,
+      cid: 57
+    }, _this.customComponents = ["AtNavBar", "AtTabs", "AtTabsPane", "Announcements", "Lesson", "Discusses"], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(CourseView, [{
@@ -83,14 +89,17 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
           courseId: this.$router.params.cid
         }
       }).then(function (res) {
-        console.log("resCourse", res);
         _this2.props.dispatch({
           type: 'account/getAccount',
           payload: {
             aid: res.author.id
           }
-        }).then(function (res) {
-          console.log("resTeacher", res);
+        });
+        _this2.props.dispatch({
+          type: 'school/getSchool',
+          payload: {
+            sid: res.school.id
+          }
         });
       });
     }
@@ -104,6 +113,13 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
     key: 'componentDidHide',
     value: function componentDidHide() {}
   }, {
+    key: 'handleClick',
+    value: function handleClick(value) {
+      this.setState({
+        current: value
+      });
+    }
+  }, {
     key: '_createData',
     value: function _createData() {
       this.__state = arguments[0] || this.state || {};
@@ -111,7 +127,88 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       var __isRunloopRef = arguments[2];
       var __prefix = this.$prefix;
       ;
-      Object.assign(this.__state, {});
+
+      var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "$compid__201"),
+          _genCompid2 = _slicedToArray(_genCompid, 2),
+          $prevCompid__201 = _genCompid2[0],
+          $compid__201 = _genCompid2[1];
+
+      var _genCompid3 = (0, _taroWeapp.genCompid)(__prefix + "$compid__202"),
+          _genCompid4 = _slicedToArray(_genCompid3, 2),
+          $prevCompid__202 = _genCompid4[0],
+          $compid__202 = _genCompid4[1];
+
+      var _genCompid5 = (0, _taroWeapp.genCompid)(__prefix + "$compid__203"),
+          _genCompid6 = _slicedToArray(_genCompid5, 2),
+          $prevCompid__203 = _genCompid6[0],
+          $compid__203 = _genCompid6[1];
+
+      var _genCompid7 = (0, _taroWeapp.genCompid)(__prefix + "$compid__204"),
+          _genCompid8 = _slicedToArray(_genCompid7, 2),
+          $prevCompid__204 = _genCompid8[0],
+          $compid__204 = _genCompid8[1];
+
+      var _genCompid9 = (0, _taroWeapp.genCompid)(__prefix + "$compid__205"),
+          _genCompid10 = _slicedToArray(_genCompid9, 2),
+          $prevCompid__205 = _genCompid10[0],
+          $compid__205 = _genCompid10[1];
+
+      var _genCompid11 = (0, _taroWeapp.genCompid)(__prefix + "$compid__206"),
+          _genCompid12 = _slicedToArray(_genCompid11, 2),
+          $prevCompid__206 = _genCompid12[0],
+          $compid__206 = _genCompid12[1];
+
+      var _genCompid13 = (0, _taroWeapp.genCompid)(__prefix + "$compid__207"),
+          _genCompid14 = _slicedToArray(_genCompid13, 2),
+          $prevCompid__207 = _genCompid14[0],
+          $compid__207 = _genCompid14[1];
+
+      var _genCompid15 = (0, _taroWeapp.genCompid)(__prefix + "$compid__208"),
+          _genCompid16 = _slicedToArray(_genCompid15, 2),
+          $prevCompid__208 = _genCompid16[0],
+          $compid__208 = _genCompid16[1];
+
+      var tabList = [{ title: '公告' }, { title: '课堂' }, { title: '笔记' }];
+      _taroWeapp.propsManager.set({
+        "color": "#000",
+        "title": this.__props.course.name
+      }, $compid__201, $prevCompid__201);
+      _taroWeapp.propsManager.set({
+        "current": this.__state.current,
+        "tabList": tabList,
+        "onClick": this.handleClick.bind(this)
+      }, $compid__202, $prevCompid__202);
+      _taroWeapp.propsManager.set({
+        "current": this.__state.current,
+        "index": 0
+      }, $compid__203, $prevCompid__203);
+      _taroWeapp.propsManager.set({
+        "courseId": this.$router.params.cid
+      }, $compid__204, $prevCompid__204);
+      _taroWeapp.propsManager.set({
+        "current": this.__state.current,
+        "index": 1
+      }, $compid__205, $prevCompid__205);
+      _taroWeapp.propsManager.set({
+        "courseId": this.$router.params.cid
+      }, $compid__206, $prevCompid__206);
+      _taroWeapp.propsManager.set({
+        "current": this.__state.current,
+        "index": 2
+      }, $compid__207, $prevCompid__207);
+      _taroWeapp.propsManager.set({
+        "courseId": this.$router.params.cid
+      }, $compid__208, $prevCompid__208);
+      Object.assign(this.__state, {
+        $compid__201: $compid__201,
+        $compid__202: $compid__202,
+        $compid__203: $compid__203,
+        $compid__204: $compid__204,
+        $compid__205: $compid__205,
+        $compid__206: $compid__206,
+        $compid__207: $compid__207,
+        $compid__208: $compid__208
+      });
       return this.__state;
     }
   }]);
@@ -135,4 +232,4 @@ Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/
 
 /***/ })
 
-},[["./src/pages/education/course/course_view.js","runtime","vendors"]]]);
+},[["./src/pages/education/course/course_view.jsx","runtime","vendors"]]]);

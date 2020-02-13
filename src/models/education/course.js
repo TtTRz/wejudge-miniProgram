@@ -9,46 +9,82 @@ export  default {
 
   effects: {
 
-    * getDashboard({payload},{call, put, select}) {
+    * getDashboard({payload}, {call, put, select}) {
       const req = yield call(course.getDashboard, payload);
-      console.log("req",req);
+      console.log("req", req);
       yield put({
         type: 'save',
         payload: {
           dashboard: req,
         }
       }),
-        yield put({
-          type: 'getCourseList',
-          payload: {
-            ids: req.data.courses.map((item) => item.id),
-          }
-        })
+          yield put({
+            type: 'getCourseList',
+            payload: {
+              ids: req.data.courses.map((item) => item.id),
+            }
+          })
     },
 
-    *getCourseList({payload},{call, put, select}){
-      const req = yield  call(course.getCoursetList,payload);
-      console.log("req",req);
+    * getCourseList({payload}, {call, put, select}) {
+      const req = yield  call(course.getCoursetList, payload);
       yield put({
-        type:'save',
-        payload:{
+        type: 'save',
+        payload: {
           courselist: req.data.courses
         }
       })
     },
 
-    *getCourseMessage({payload},{call, put, select}){
-      const req = yield  call(course.getCourseMessage,payload);
-      console.log("req",req);
+    * getCourseMessage({payload}, {call, put, select}) {
+      const req = yield  call(course.getCourseMessage, payload);
       yield put({
-        type:'save',
-        payload:{
+        type: 'save',
+        payload: {
           course: req.data
         }
       });
-      return  req.data;
-    }
+      return req.data;
+    },
+
+//获取课程公告
+    * getAnnouncementsList({payload}, {call, put, select}) {
+      const req = yield  call(course.getAnnouncementsList, payload);
+      yield put({
+        type: 'save',
+        payload: {
+          announcementsList: req
+        }
+      });
+      return req;
+    },
+
+    //获取课程课堂列表
+    * getLessonList({payload}, {call, put, select}) {
+      const req = yield  call(course.getLessonList, payload);
+      yield put({
+        type: 'save',
+        payload: {
+          lessonList: req
+        }
+      });
+      return req;
+    },
+
+    //获取课程讨论
+    * getDiscusses({payload}, {call, put, select}) {
+      const req = yield  call(course.getDiscusses, payload);
+      yield put({
+        type: 'save',
+        payload: {
+          discusses: req.data
+        }
+      });
+      return req.data;
+    },
   },
+
+
 
   reducers: {
     save(state,{payload}){

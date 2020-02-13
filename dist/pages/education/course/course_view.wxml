@@ -1,9 +1,20 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="course-view">
-        <view class="course-content">
-            <view class="at-article__h1">名称</view>
-            <view class="at-article__p">222</view>
-            <view class="at-article__info">teacher school</view>
-        </view>
+        <at-nav-bar compid="{{$compid__201}}"></at-nav-bar>
+        <at-tabs compid="{{$compid__202}}">
+            <at-tabs-pane compid="{{$compid__203}}">
+                <view>
+                    <announcements compid="{{$compid__204}}"></announcements>
+                </view>
+            </at-tabs-pane>
+            <at-tabs-pane compid="{{$compid__205}}">
+                <lesson compid="{{$compid__206}}"></lesson>
+            </at-tabs-pane>
+            <at-tabs-pane compid="{{$compid__207}}">
+                <view>
+                    <discusses compid="{{$compid__208}}"></discusses>
+                </view>
+            </at-tabs-pane>
+        </at-tabs>
     </view>
 </block>

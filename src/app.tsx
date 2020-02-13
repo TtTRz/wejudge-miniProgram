@@ -40,11 +40,12 @@ class App extends Component {
       'pages/home/welcome/loading',
       'pages/home/home_view',
       'pages/education/course/course_view',
+        // 'components/education/course/course_announcements'
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'wejudge小程序',
+      // navigationBarTitleText: 'wejudge小程序',
       navigationBarTextStyle: 'black'
     }
   }

@@ -1,5 +1,5 @@
 import Taro from '@tarojs/redux'
-import  * as course from '../../service/education/school'
+import  * as school from '../../service/education/school'
 
 export  default {
   namespace: 'school',
@@ -15,7 +15,7 @@ export  default {
       yield put({
         type:'save',
         payload:{
-          // school: req.data.course
+          school: req.data
         }
       })
     }

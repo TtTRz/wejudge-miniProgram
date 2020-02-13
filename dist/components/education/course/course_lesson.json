@@ -1,0 +1,1 @@
+{"component":true,"usingComponents":{"at-accordion":"../../../npm/taro-ui/dist/weapp/components/accordion/index","at-list":"../../../npm/taro-ui/dist/weapp/components/list/index","at-list-item":"../../../npm/taro-ui/dist/weapp/components/list/item/index"},"enablePullDownRefresh":true,"navigationBarTitleText":""}

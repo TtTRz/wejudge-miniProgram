@@ -1,9 +1,9 @@
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["pages/home/welcome/welcome_view"],{
 
-/***/ "./src/pages/home/welcome/welcome_view.js":
-/*!************************************************!*\
-  !*** ./src/pages/home/welcome/welcome_view.js ***!
-  \************************************************/
+/***/ "./src/pages/home/welcome/welcome_view.jsx":
+/*!*************************************************!*\
+  !*** ./src/pages/home/welcome/welcome_view.jsx ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -215,4 +215,4 @@ Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/
 
 /***/ })
 
-},[["./src/pages/home/welcome/welcome_view.js","runtime","vendors"]]]);
+},[["./src/pages/home/welcome/welcome_view.jsx","runtime","vendors"]]]);

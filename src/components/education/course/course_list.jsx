@@ -51,6 +51,9 @@ class CourseView extends Taro.PureComponent {
   static propTypes = {
   };
 
+  static defaultProps ={
+    courselist:{},
+  };
 
   componentWillMount() {
     this.props.dispatch({
@@ -78,10 +81,9 @@ class CourseView extends Taro.PureComponent {
       selectorChecked: this.state.selector[e.detail.value]
     })
   };
-  navigateGoTo = id => {
-    console.log("id",id);
+  navigateGoTo = item => {
     Taro.navigateTo({
-      url:'/pages/education/course/course_view'+'?cid='+id,
+      url:'/pages/education/course/course_view'+'?cid='+item.id+'?name='+item.name,
     });
   };
   CourseList () {
@@ -90,12 +92,12 @@ class CourseView extends Taro.PureComponent {
     return(
       <View className='courseList-view'>
         <View className='courseList-row'>
-          {courselist.map((item, index) => {
+          {courselist && courselist.map((item, index) => {
             const dst = diffTimeSeconds(item.start_time);
             const det = diffTimeSeconds(item.end_time);
             if(selectorChecked === '全部'){
               return(
-                <View className='courseList-item' onClick={() =>this.navigateGoTo(item.id)}>
+                <View className='courseList-item' onClick={() =>this.navigateGoTo(item)}>
                   <AtAvatar
                     size="large"
                     style="margin-top:10px"
