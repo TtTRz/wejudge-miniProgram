@@ -11,10 +11,10 @@ module.exports = __webpack_require__.p + "static/images/a90eb197337beb1e34ffbe56
 
 /***/ }),
 
-/***/ "./src/pages/account/account_view.js":
-/*!*******************************************!*\
-  !*** ./src/pages/account/account_view.js ***!
-  \*******************************************/
+/***/ "./src/pages/account/account_view.jsx":
+/*!********************************************!*\
+  !*** ./src/pages/account/account_view.jsx ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -184,4 +184,4 @@ Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/
 
 /***/ })
 
-},[["./src/pages/account/account_view.js","runtime","vendors"]]]);
+},[["./src/pages/account/account_view.jsx","runtime","vendors"]]]);

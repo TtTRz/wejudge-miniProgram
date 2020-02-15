@@ -40,15 +40,16 @@ class App extends Component {
       'pages/home/welcome/loading',
       'pages/home/home_view',
       'pages/education/course/course_view',
-        // 'components/education/course/course_announcements'
+      'pages/education/lesson/lesson_view',
+      'components/education/lesson/lesson_video',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
-      // navigationBarTitleText: 'wejudge小程序',
+      navigationBarTitleText: 'wejudge小程序',
       navigationBarTextStyle: 'black'
     }
-  }
+  };
 
   // 在 App 类中的 render() 函数没有实际作用
   // 请勿修改此函数

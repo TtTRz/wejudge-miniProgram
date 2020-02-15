@@ -1,18 +1,33 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="course-view">
-        <at-nav-bar compid="{{$compid__201}}"></at-nav-bar>
-        <at-tabs compid="{{$compid__202}}">
-            <at-tabs-pane compid="{{$compid__203}}">
+        <view class="course-header">
+            <view class="course-header-img">
+                <at-avatar compid="{{$compid__17}}"></at-avatar>
+            </view>
+            <view class="course-header-content">
+                <view class="at-article__h1">{{course.name}}</view>
+                <view class="at-article__p">{{anonymousState__temp}} · {{anonymousState__temp2}}</view>
+            </view>
+        </view>
+        <at-tabs compid="{{$compid__18}}">
+            <at-tabs-pane compid="{{$compid__19}}">
                 <view>
-                    <announcements compid="{{$compid__204}}"></announcements>
+                    <view class="course-content">
+                        <view class="at-article__h2">开课时间：</view>
+                        <view class="at-article__p">{{anonymousState__temp3}} -- {{anonymousState__temp4}}</view>
+                        <view class="at-article__h2">课程介绍：</view>
+                        <view class="at-article__p">{{anonymousState__temp5}}</view>
+                        <view class="at-article__h2">教学计划：</view>
+                        <view class="at-article__p">{{anonymousState__temp6}}</view>
+                    </view>
                 </view>
             </at-tabs-pane>
-            <at-tabs-pane compid="{{$compid__205}}">
-                <lesson compid="{{$compid__206}}"></lesson>
+            <at-tabs-pane compid="{{$compid__20}}">
+                <lesson compid="{{$compid__21}}"></lesson>
             </at-tabs-pane>
-            <at-tabs-pane compid="{{$compid__207}}">
+            <at-tabs-pane compid="{{$compid__22}}">
                 <view>
-                    <discusses compid="{{$compid__208}}"></discusses>
+                    <announcements compid="{{$compid__23}}"></announcements>
                 </view>
             </at-tabs-pane>
         </at-tabs>

@@ -12,8 +12,6 @@ export  const getDashboard = (payload) =>{
 
 //批量获取当前登陆用户课程
 export  const getCoursetList = (payload) =>{
-  console.log("getCourseList",payload.ids);
-  const pattern = compile(API.COURSE.LIST);
   return Request({
     url:API.COURSE.LIST,
     method: 'post',
@@ -32,6 +30,17 @@ export  const getCourseMessage = (payload) =>{
     data:{
     }
   })
+};
+
+//获取课程额外信息
+export  const getCourseExtra = (payload) =>{
+    const pattern = compile(API.COURSE.EXTRA);
+    return Request({
+        url:pattern({cid:payload.courseId}),
+        method: 'get',
+        data:{
+        }
+    })
 };
 
 //获取课程公告

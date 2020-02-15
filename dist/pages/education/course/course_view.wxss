@@ -1,3 +1,8 @@
-.course-view .course-content {
-  background: #6ACE6E; }
+.course-view .course-header {
+  display: flex; }
+  .course-view .course-header .course-header-img {
+    padding: 50rpx; }
+  .course-view .course-header .course-header-content {
+    display: block;
+    margin-left: 10rpx; }
 

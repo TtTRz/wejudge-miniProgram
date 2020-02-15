@@ -68,7 +68,7 @@ var Announcements = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = 
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Announcements.__proto__ || Object.getPrototypeOf(Announcements)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray3", "course_announcements", "current", "dispatch", "courseId", "announcementsList"], _this.config = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Announcements.__proto__ || Object.getPrototypeOf(Announcements)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray6", "course_announcements", "current", "dispatch", "courseId", "announcementsList"], _this.config = {
       enablePullDownRefresh: true
     }, _this.state = {
       current: 0
@@ -112,7 +112,7 @@ var Announcements = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = 
 
       var course_announcements = this.__props.announcementsList.data.course_announcements;
 
-      var loopArray3 = course_announcements ? course_announcements.map(function (item, index) {
+      var loopArray6 = course_announcements ? course_announcements.map(function (item, index) {
         item = {
           $original: (0, _taroWeapp.internal_get_original)(item)
         };
@@ -120,24 +120,24 @@ var Announcements = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = 
         console.log(item.$original);
         var $loopState__temp2 = course_announcements ? formatTimeFromNow(item.$original.update_time) : null;
 
-        var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "izzzzzzzzz" + index, true),
+        var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "bjzzzzzzzz" + index, true),
             _genCompid2 = _slicedToArray(_genCompid, 2),
-            $prevCompid__22 = _genCompid2[0],
-            $compid__22 = _genCompid2[1];
+            $prevCompid__30 = _genCompid2[0],
+            $compid__30 = _genCompid2[1];
 
         _taroWeapp.propsManager.set({
           "title": item.$original.title,
           "note": $loopState__temp2,
           "arrow": "right"
-        }, $compid__22, $prevCompid__22);
+        }, $compid__30, $prevCompid__30);
         return {
           $loopState__temp2: $loopState__temp2,
-          $compid__22: $compid__22,
+          $compid__30: $compid__30,
           $original: item.$original
         };
       }) : [];
       Object.assign(this.__state, {
-        loopArray3: loopArray3,
+        loopArray6: loopArray6,
         course_announcements: course_announcements
       });
       return this.__state;

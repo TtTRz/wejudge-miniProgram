@@ -82,11 +82,11 @@ class CourseView extends Taro.PureComponent {
     })
   };
   navigateGoTo = id => {
-    console.log("id",id);
     Taro.navigateTo({
       url:'/pages/education/course/course_view'+'?cid='+id,
     });
   };
+
   CourseList () {
     const {courselist} = this.props;
     const {selectorChecked} = this.state;

@@ -1,9 +1,45 @@
+<template name="renderList">
+    <block>
+        <view class="list-item" wx:for="{{loopArray3}}" wx:for-item="item" wx:for-index="index">
+            <at-accordion compid="{{item.$compid__24}}">
+                <at-list compid="{{item.$compid__25}}">
+                    <block wx:if="{{item.$loopState__temp7}}">
+                        <template is="renderSecondList" data="{{...item.$loopState__temp2}}"></template>
+                    </block>
+                </at-list>
+            </at-accordion>
+        </view>
+    </block>
+</template>
+<template name="renderSecondList">
+    <block>
+        <view class="second-content" wx:for="{{loopArray4}}" wx:for-item="item" wx:for-index="ix">
+            <block>
+                <block wx:if="{{item.$loopState__temp9}}">
+                    <view>
+                        <at-accordion compid="{{item.$compid__26}}">
+                            <at-list compid="{{item.$compid__27}}">
+                                <template is="renderThirdList" data="{{...item.$loopState__temp4}}"></template>
+                            </at-list>
+                        </at-accordion>
+                    </view>
+                </block>
+                <block wx:else>
+                    <at-list-item compid="{{item.$compid__28}}"></at-list-item>
+                </block>
+            </block>
+        </view>
+    </block>
+</template>
+<template name="renderThirdList">
+    <block>
+        <view class="third-content" wx:for="{{loopArray5}}" wx:for-item="item" wx:for-index="i">
+            <at-list-item compid="{{item.$compid__29}}"></at-list-item>
+        </view>
+    </block>
+</template>
 <block wx:if="{{$taroCompReady}}">
     <view class="lesson-view">
-        <at-accordion wx:for="{{loopArray12}}" wx:for-item="items" wx:for-index="_anonIdx4" compid="{{items.$compid__156}}">
-            <at-list compid="{{items.$compid__157}}">
-                <at-list-item wx:for="{{items.$anonymousCallee__8}}" wx:for-item="item" wx:for-index="_anonIdx2" compid="{{item.$compid__155}}"></at-list-item>
-            </at-list>
-        </at-accordion>
+        <template is="renderList" data="{{...anonymousState__temp5}}"></template>
     </view>
 </block>

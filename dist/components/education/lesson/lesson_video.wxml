@@ -1,0 +1,5 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="video-view">
+        <video src="{{videoUrl}}"></video>
+    </view>
+</block>

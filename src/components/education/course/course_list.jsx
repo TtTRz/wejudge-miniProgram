@@ -92,7 +92,7 @@ class CourseView extends Taro.PureComponent {
     return(
       <View className='courseList-view'>
         <View className='courseList-row'>
-          {courselist && courselist.map((item, index) => {
+          {courselist.length !==0  && courselist.map((item, index) => {
             const dst = diffTimeSeconds(item.start_time);
             const det = diffTimeSeconds(item.end_time);
             if(selectorChecked === '全部'){

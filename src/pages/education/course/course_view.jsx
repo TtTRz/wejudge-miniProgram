@@ -2,14 +2,40 @@ import Taro from '@tarojs/taro'
 import { View,Picker } from '@tarojs/components'
 import {AtAvatar, AtNavBar, AtTabs, AtTabsPane} from "taro-ui";
 import {connect} from '@tarojs/redux'
+import { get } from 'lodash-es';
+import moment from 'moment';
 import './course_view.scss'
 import Announcements from "../../../components/education/course/course_announcements";
 import Lesson from "../../../components/education/course/course_lesson"
-import Discusses from "../../../components/education/course/course_discusses"
+import ImageURL from "../../../asset/image/course_icon.jpg";
+
+const i18nNamespace =  'zh_CN';
+const FORMAT_PATTERN = {
+  zh_CN: {
+    key: 'zh-cn',
+    SHORT_TIME: 'HH:mm',
+    LONG_TIME: 'HH:mm:ss',
+    LONG_TIME_WITH_MS: 'HH:mm:ss.SSS',
+    SHORT_DATE: 'MM-DD',
+    LONG_DATE: 'YYYY-MM-DD',
+    SHORT_DATETIME: 'MM-DD HH:mm',
+    LONG_DATETIME: 'YYYY-MM-DD HH:mm:ss',
+  },
+};
+ const createMoment = (timestamp) => {
+  return moment(timestamp * 1000).utcOffset(8);
+};
+
+ const formatTime = (timestamp, key) => {
+  const dt = createMoment(timestamp);
+
+  return dt.format(get(FORMAT_PATTERN, `${i18nNamespace}.${key}`, ''));
+};
 
 const mapStateToProps = (state,props) => {
   return {
     course: state.course.course,
+    extra:state.course.extra,
     school:state.school.school,
     teacher:state.account.message,
     announcements:state.course.announcements,
@@ -25,6 +51,14 @@ class CourseView extends Taro.PureComponent {
   };
 
   static propTypes = {
+  };
+
+  static  defaultProps={
+    course:{},
+    extra:{},
+    school:{},
+    teacher:{},
+    announcementsList:{},
   };
 
   state ={
@@ -54,6 +88,12 @@ class CourseView extends Taro.PureComponent {
       });
 
     });
+    this.props.dispatch({
+      type:'course/getCourseExtra',
+      payload:{
+        courseId: this.$router.params.cid,
+      }
+    })
 
   };
 
@@ -65,6 +105,7 @@ class CourseView extends Taro.PureComponent {
   }
 
   componentDidHide () { }
+
   handleClick (value) {
     this.setState({
       current: value
@@ -72,24 +113,33 @@ class CourseView extends Taro.PureComponent {
   }
 
   render() {
-    const tabList = [{ title: '公告' }, { title: '课堂' }, { title: '讨论' }];
+    const tabList = [{ title: '简介' }, { title: '课堂' }, { title: '公告' }];
     return(
         <View className='course-view'>
-          <AtNavBar
-              color='#000'
-              title={this.props.course.name}
-          />
-          {/*<View className='course-content'>*/}
-          {/*  <View className='at-article__h1'>{this.props.course.name}</View>*/}
-          {/*  <View className='at-article__p'>{this.props.course.description}</View>*/}
-          {/*  <View className='at-article__h3'>{this.props.teacher.data.realname}  {this.props.school.name}</View>*/}
-          {/*</View>*/}
+          <View className='course-header'>
+            <View className='course-header-img'>
+              <AtAvatar
+                  size="small"
+                  style="margin-top:10px"
+                  image={ImageURL}
+              />
+            </View>
+            <View className='course-header-content'>
+              <View className='at-article__h1'>{this.props.course.name}</View>
+              <View className='at-article__p'>{get(this.props.teacher,"data.realname")} · {get(this.props.school,"name")} </View>
+            </View>
+          </View>
           <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
             <AtTabsPane current={this.state.current} index={0} >
               <View>
-                <Announcements
-                  courseId={this.$router.params.cid}
-                />
+                <View className='course-content'>
+                  <View className='at-article__h2'>开课时间：</View>
+                  <View className='at-article__p'>{formatTime(this.props.course.create_time, 'LONG_DATETIME')} -- {formatTime(this.props.course.end_time, 'LONG_DATETIME')}</View>
+                  <View className='at-article__h2'>课程介绍：</View>
+                  <View className='at-article__p'> {get(this.props.course,"description") }</View>
+                  <View className='at-article__h2'>教学计划：</View>
+                  <View className='at-article__p'> {get(this.props.extra,"teach_plan")}</View>
+                </View>
               </View>
             </AtTabsPane>
             <AtTabsPane current={this.state.current} index={1}>
@@ -99,8 +149,9 @@ class CourseView extends Taro.PureComponent {
             </AtTabsPane>
             <AtTabsPane current={this.state.current} index={2}>
               <View>
-                <Discusses
-                  courseId={this.$router.params.cid}/>
+                <Announcements
+                    courseId={this.$router.params.cid}
+                />
               </View>
             </AtTabsPane>
           </AtTabs>

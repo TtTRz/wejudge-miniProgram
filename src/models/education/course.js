@@ -1,5 +1,6 @@
 import Taro from '@tarojs/redux'
 import  * as course from '../../service/education/course'
+import * as lesson from "../../service/education/lesson";
 
 export  default {
   namespace: 'course',
@@ -17,13 +18,13 @@ export  default {
         payload: {
           dashboard: req,
         }
-      }),
-          yield put({
-            type: 'getCourseList',
-            payload: {
-              ids: req.data.courses.map((item) => item.id),
-            }
-          })
+      });
+      yield put({
+        type: 'getCourseList',
+        payload: {
+          ids: req.data.courses.map((item) => item.id),
+        }
+      })
     },
 
     * getCourseList({payload}, {call, put, select}) {
@@ -42,6 +43,17 @@ export  default {
         type: 'save',
         payload: {
           course: req.data
+        }
+      });
+      return req.data;
+    },
+
+    * getCourseExtra({payload}, {call, put, select}) {
+      const req = yield  call(course.getCourseExtra, payload);
+      yield put({
+        type: 'save',
+        payload: {
+          extra: req.data
         }
       });
       return req.data;
@@ -82,6 +94,8 @@ export  default {
       });
       return req.data;
     },
+
+
   },
 
 

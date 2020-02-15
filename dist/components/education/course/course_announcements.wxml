@@ -2,7 +2,7 @@
     <view class="announcements-view">
         <at-list>
             <block wx:if="{{course_announcements}}">
-                <at-list-item wx:for="{{loopArray3}}" wx:for-item="item" wx:for-index="index" compid="{{item.$compid__22}}"></at-list-item>
+                <at-list-item wx:for="{{loopArray6}}" wx:for-item="item" wx:for-index="index" compid="{{item.$compid__30}}"></at-list-item>
             </block>
         </at-list>
     </view>

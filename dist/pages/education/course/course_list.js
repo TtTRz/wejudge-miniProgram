@@ -102,7 +102,6 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
         selectorChecked: _this.state.selector[e.detail.value]
       });
     }, _this.navigateGoTo = function (id) {
-      console.log("id", id);
       _taroWeapp2.default.navigateTo({
         url: "/pages/education/course/course_view?cid=" + id
       });

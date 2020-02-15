@@ -1,0 +1,1 @@
+{"usingComponents":{"video-player":"../../../components/education/lesson/lesson_video","at-tabs":"../../../npm/taro-ui/dist/weapp/components/tabs/index","at-tabs-pane":"../../../npm/taro-ui/dist/weapp/components/tabs-pane/index","lesson-home":"../../../components/education/lesson/lesson_homework"},"enablePullDownRefresh":true}

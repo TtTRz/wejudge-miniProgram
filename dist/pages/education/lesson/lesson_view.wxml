@@ -1,0 +1,25 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="course-view">
+        <block>
+            <block wx:if="{{videos}}">
+                <view class="lesson_video">
+                    <video-player compid="{{$compid__31}}"></video-player>
+                </view>
+            </block>
+            <block wx:else>
+                <view>本课堂暂无视频</view>
+            </block>
+        </block>
+        <at-tabs compid="{{$compid__32}}">
+            <at-tabs-pane compid="{{$compid__33}}">
+                <view style="padding: 100px 50px;background-color: #FAFBFC;text-align: center;">简介</view>
+            </at-tabs-pane>
+            <at-tabs-pane compid="{{$compid__34}}">
+                <lesson-home></lesson-home>
+            </at-tabs-pane>
+            <at-tabs-pane compid="{{$compid__35}}">
+                <view style="padding: 100px 50px;background-color: #FAFBFC;text-align: center;">笔记</view>
+            </at-tabs-pane>
+        </at-tabs>
+    </view>
+</block>

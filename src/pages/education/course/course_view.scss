@@ -1,6 +1,15 @@
 .course-view{
+  .course-header{
+    display: flex;
+    .course-header-img{
+      padding: 50px;
+    }
+    .course-header-content{
+      display: block;
+      margin-left: 10px;
+    }
+  }
   .course-content{
-    background: #6ACE6E;
 
   }
 }
