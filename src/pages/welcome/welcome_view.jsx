@@ -1,10 +1,9 @@
 import Taro from '@tarojs/taro'
 import { View,Text} from '@tarojs/components'
-// import  'src/pages/home/welcome/welcome_view.scss'
 import { AtButton  ,AtAvatar, AtForm ,AtInput} from 'taro-ui'
 import {connect} from '@tarojs/redux'
 import './welcome_view.scss'
-import AvatarUrl from '../../../../src/asset/image/course_icon.jpg'
+import AvatarUrl from '../../../src/asset/image/course_icon.jpg'
 import LoadingView from "./loading";
 
 const mapStateToProps = (state,props) => {
@@ -23,7 +22,10 @@ class WelcomeView extends Taro.PureComponent {
     // loading: false,
     username:'',
     password:'',
-  }
+  };
+  static defaultProps = {
+        courselist:{},
+    };
   componentWillReceiveProps () {
   }
 

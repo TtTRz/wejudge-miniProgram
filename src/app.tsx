@@ -4,6 +4,7 @@ import dva from './utils/dva'
 import models from './models/index';
 import './app.scss'
 import { Provider } from '@tarojs/redux';
+import './utils/zhcn_moment.js'
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：
@@ -13,7 +14,7 @@ import { Provider } from '@tarojs/redux';
 const dvaApp = dva.createApp({
   initalState: {},
   models: models,
-})
+});
 
 const store = dvaApp.getStore();
 
@@ -36,19 +37,41 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/home/welcome/welcome_view',
-      'pages/home/welcome/loading',
+      'pages/welcome/welcome_view',
+      'pages/welcome/loading',
       'pages/home/home_view',
       'pages/education/course/course_view',
       'pages/education/lesson/lesson_view',
-      'components/education/lesson/lesson_video',
     ],
     window: {
       backgroundTextStyle: 'light',
       navigationBarBackgroundColor: '#fff',
       navigationBarTitleText: 'wejudge小程序',
       navigationBarTextStyle: 'black'
-    }
+    },
+    // 分包路径
+    // subPackages: [{
+    //   "root":'pages/home',
+    //   "pages":[
+    //       "home_view"
+    //   ]
+    // },
+    //   {
+    //     "root": "pages/education/",
+    //     "pages": [
+    //       "course/course_view",
+    //       "lesson/lesson_view",
+    //     ]
+    //   },{
+    //   "root":"components/education",
+    //     "pages":[
+    //         "course/course_announcements",
+    //         "course/course_lesson",
+    //         "lesson/lesson_homework",
+    //         "lesson/lesson_video"
+    //     ]
+    //   }
+    // ]
   };
 
   // 在 App 类中的 render() 函数没有实际作用

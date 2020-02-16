@@ -14,6 +14,7 @@ import moment from "moment";
 };
 
 
+
 const mapStateToProps = (state,props) => {
   return {
     announcementsList:state.course.announcementsList,
@@ -67,7 +68,6 @@ class Announcements extends Taro.PureComponent {
       <View className='announcements-view'>
         <AtList>
           {course_announcements && course_announcements.map((item,index) => {
-          console.log(item);
           return (
             <AtListItem
               title={item.title}

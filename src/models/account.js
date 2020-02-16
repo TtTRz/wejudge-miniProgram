@@ -53,7 +53,6 @@ export default {
     * getAccount({payload},{call ,put ,select}){
       const req = yield call(account.getAccount,payload);
       const  {data} =req;
-      console.log(req);
       yield put({
         type:'save',
         payload:{

@@ -10,6 +10,16 @@ export  const getDashboard = (payload) =>{
   })
 };
 
+//获取全部课程列表
+export  const getAllList = (payload) =>{
+    return Request({
+        url:API.COURSE.ALLLIST,
+        method: 'get',
+        data:{}
+    })
+};
+
+
 //批量获取当前登陆用户课程
 export  const getCoursetList = (payload) =>{
   return Request({
@@ -46,7 +56,6 @@ export  const getCourseExtra = (payload) =>{
 //获取课程公告
 export  const getAnnouncementsList = (payload) =>{
     const pattern = compile(API.COURSE.ANNOUNCEMENTSLIST);
-    console.log("service",payload);
     return Request({
         url:pattern({cid:payload.courseId}),
         method: 'get',
@@ -57,6 +66,8 @@ export  const getAnnouncementsList = (payload) =>{
         }
     })
 };
+
+
 
 //获取课程课堂列表
 export  const getLessonList = (payload) =>{
@@ -71,14 +82,11 @@ export  const getLessonList = (payload) =>{
 //获取课程讨论
 export  const getDiscusses = (payload) =>{
     const pattern = compile(API.COURSE.DISUSSES);
-    console.log("service",payload);
     return Request({
         url:pattern({cid:payload.courseId}),
         method: 'get',
         data:{}
     })
 };
-
-
 
 

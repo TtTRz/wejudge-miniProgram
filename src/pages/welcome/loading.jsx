@@ -11,7 +11,9 @@ class LoadingView extends Taro.PureComponent {
     // loading: false,
     username:'',
     password:'',
-  }
+  };
+  static defaultProps = {
+  };
   componentWillReceiveProps () {
   }
 

@@ -1,0 +1,9 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="note-view">
+        <at-list>
+            <block wx:if="{{notes}}">
+                <at-list-item wx:for="{{loopArray8}}" wx:for-item="item" wx:for-index="index" compid="{{item.$compid__38}}"></at-list-item>
+            </block>
+        </at-list>
+    </view>
+</block>

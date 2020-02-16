@@ -26,6 +26,9 @@ class CourseView extends Taro.PureComponent {
     current: 0,
     open:true,
   };
+  static defaultProps ={
+    lesson:{},
+  };
 
 
   componentWillMount() {
@@ -60,7 +63,7 @@ class CourseView extends Taro.PureComponent {
               open='true'
               title={item.title}
             >
-              <AtList hasBorder={true}>
+              <AtList hasBorder={false}>
               {get(item, 'children', []).length !== 0 &&
                   this.renderSecondList(item.children, index)}
               </AtList>
@@ -79,7 +82,7 @@ class CourseView extends Taro.PureComponent {
                 open='true'
                 title={item.title}
               >
-                <AtList hasBorder={true}>{this.renderThirdList(item.children, index, ix)}</AtList>
+                <AtList hasBorder={false}>{this.renderThirdList(item.children, index, ix)}</AtList>
               </AtAccordion>
             </View>: <AtListItem note={item.title} onClick={() => this.handleLessonClick(item.id)}/>}
           </View>

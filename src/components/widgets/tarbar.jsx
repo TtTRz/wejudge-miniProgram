@@ -4,8 +4,13 @@ import './tarbar.scss'
 
 
 class TabBar extends Taro.PureComponent{
+  static defaultProps ={
+  };
+  static state={
 
-  TabList=[ {
+  };
+  TabList=[
+      {
     iconName: 'home-icon',
     iconNameCurrent: 'home-icon-select',
     title: '首页'

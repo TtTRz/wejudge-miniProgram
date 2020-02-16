@@ -26,12 +26,13 @@ class HomeView extends Taro.PureComponent {
 
 
   constructor () {
-    super(...arguments)
+    super(...arguments);
     this.state = {
       current: 0
     }
   }
-
+  static defaultProps = {
+  };
   static propTypes = {
   };
 
@@ -39,12 +40,6 @@ class HomeView extends Taro.PureComponent {
   };
 
   componentWillMount() {
-
-  }
-  componentWillUnmount () {
-
-  }
-  componentDidShow () {
 
   }
 
@@ -57,7 +52,6 @@ class HomeView extends Taro.PureComponent {
   };
   render() {
     return (
-
       <View className='home-view'>
         <View className='home-content'>
           {this.state.currentTab === 0 && <View className="home-view">

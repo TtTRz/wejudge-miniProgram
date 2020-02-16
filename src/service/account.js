@@ -8,10 +8,10 @@ export const login = (payload) => {
     url: API.ACCOUNT.LOGIN,
     method: 'post',
     data: {
-      username: "xj@a.com",
-      password: "12345678",
-      // username: payload.username,
-      // password: payload.password,
+      // username: "xj@a.com",
+      // password: "12345678",
+      username: payload.username,
+      password: payload.password,
     },
   })
 };
@@ -26,7 +26,6 @@ export const accountMe = (payload) => (
 
 export const getAccount = (payload) => {
   const pattern = compile(API.ACCOUNT.CURD);
-  console.log("service",payload);
   return Request({
     url:pattern({aid:payload.aid}),
     method:'get',

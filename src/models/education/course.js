@@ -12,7 +12,6 @@ export  default {
 
     * getDashboard({payload}, {call, put, select}) {
       const req = yield call(course.getDashboard, payload);
-      console.log("req", req);
       yield put({
         type: 'save',
         payload: {
@@ -29,6 +28,15 @@ export  default {
 
     * getCourseList({payload}, {call, put, select}) {
       const req = yield  call(course.getCoursetList, payload);
+      yield put({
+        type: 'save',
+        payload: {
+          courselist: req.data.courses
+        }
+      })
+    },
+    * getAllList({payload}, {call, put, select}) {
+      const req = yield  call(course.getAllList, payload);
       yield put({
         type: 'save',
         payload: {

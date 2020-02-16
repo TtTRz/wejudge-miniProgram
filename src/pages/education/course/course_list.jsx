@@ -29,10 +29,11 @@ const defaultTimezoneOffset = 8;
 };
 
 const mapStateToProps = (state,props) => {
-  return {
-    courselist: state.course.courselist,
-    isLoading:state.loading.models['course'],
-  };
+    return {
+      courselist: state.course.courselist,
+      isLoading:state.loading.models['course'],
+      account:state.account.data,
+    };
 };
 
 @connect(mapStateToProps)
@@ -56,19 +57,20 @@ class CourseView extends Taro.PureComponent {
 
 
   componentWillMount() {
-    this.props.dispatch({
-      type:'course/getDashboard',
-      payload:{}
-    })
+    console.log("this.props",this.props);
+    if(this.props.account.role !== 99) {
+      this.props.dispatch({
+        type: 'course/getDashboard',
+        payload: {}
+      })
+    }
+    else {
+        this.props.dispatch({
+          type:'course/getAllList',
+          payload:{}
+        })
+    }
   }
-  componentWillUnmount () {
-
-  }
-  componentDidShow () {
-
-  }
-
-  componentDidHide () { }
 
   handleClick (value) {
     this.setState({
@@ -153,7 +155,7 @@ class CourseView extends Taro.PureComponent {
       <View className="course-view">
         <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
           <AtTabsPane current={this.state.current} index={0} >
-            <View style='background-color: #e8e9ea;height:700px;' >
+            <View style='background-color: #e8e9ea;' >
 
               <Picker mode='selector' range={this.state.selector} onChange={this.onChange}>
                 <View className='picker' style='float:right ;font-size: 10px; color:#98999c;margin:3px'>

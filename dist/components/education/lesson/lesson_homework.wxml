@@ -1,3 +1,9 @@
 <block wx:if="{{$taroCompReady}}">
-    <view class="video-view"></view>
+    <view class="homework-view">
+        <at-list>
+            <block wx:if="{{asgns}}">
+                <at-list-item wx:for="{{loopArray7}}" wx:for-item="item" wx:for-index="index" compid="{{item.$compid__37}}"></at-list-item>
+            </block>
+        </at-list>
+    </view>
 </block>

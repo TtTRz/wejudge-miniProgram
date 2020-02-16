@@ -40,7 +40,7 @@
     <view class="course-view">
         <at-tabs compid="{{$compid__10}}">
             <at-tabs-pane compid="{{$compid__11}}">
-                <view style="background-color: #e8e9ea;height:700px;">
+                <view style="background-color: #e8e9ea;">
                     <picker mode="selector" range="{{selector}}" bindchange="onChange">
                         <view class="picker" style="float:right ;font-size: 10px; color:#98999c;margin:3px">{{selectorChecked}}
                             <at-icon compid="{{$compid__12}}"></at-icon>

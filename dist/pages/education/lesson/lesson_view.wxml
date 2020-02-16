@@ -1,8 +1,8 @@
 <block wx:if="{{$taroCompReady}}">
-    <view class="course-view">
+    <view class="lesson-view">
         <block>
             <block wx:if="{{videos}}">
-                <view class="lesson_video">
+                <view class="lesson-video">
                     <video-player compid="{{$compid__31}}"></video-player>
                 </view>
             </block>
@@ -12,13 +12,10 @@
         </block>
         <at-tabs compid="{{$compid__32}}">
             <at-tabs-pane compid="{{$compid__33}}">
-                <view style="padding: 100px 50px;background-color: #FAFBFC;text-align: center;">简介</view>
-            </at-tabs-pane>
-            <at-tabs-pane compid="{{$compid__34}}">
-                <lesson-home></lesson-home>
+                <home-work compid="{{$compid__34}}"></home-work>
             </at-tabs-pane>
             <at-tabs-pane compid="{{$compid__35}}">
-                <view style="padding: 100px 50px;background-color: #FAFBFC;text-align: center;">笔记</view>
+                <note compid="{{$compid__36}}"></note>
             </at-tabs-pane>
         </at-tabs>
     </view>

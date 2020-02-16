@@ -1,17 +1,1 @@
-{
-  "pages": [
-    "pages/home/welcome/welcome_view",
-    "pages/home/welcome/loading",
-    "pages/home/home_view",
-    "pages/education/course/course_view",
-    "pages/education/lesson/lesson_view",
-    "components/education/lesson/lesson_video"
-  ],
-  "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "wejudge小程序",
-    "navigationBarTextStyle": "black"
-  },
-  "sitemapLocation": "sitemap.json"
-}
+{"pages":["pages/welcome/welcome_view","pages/welcome/loading","pages/home/home_view","pages/education/course/course_view","pages/education/lesson/lesson_view"],"window":{"backgroundTextStyle":"light","navigationBarBackgroundColor":"#fff","navigationBarTitleText":"wejudge小程序","navigationBarTextStyle":"black"}}

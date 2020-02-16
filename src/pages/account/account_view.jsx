@@ -2,7 +2,7 @@ import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import './account_view.scss'
 import  {AtAvatar,AtList,AtListItem,AtGrid} from "taro-ui";
-import AvatarUrl from '../../asset/image/a90eb197337beb1e34ffbe5637f578d9.jpeg'
+import { Base64 } from 'js-base64';
 
 function Role (n) {
 
@@ -22,54 +22,45 @@ function Role (n) {
   return "学校负责人";
 }
 
-// @connect(mapStateToProps,null)
+
+export const buildAvatarPath = (vpath) => {
+  if (!vpath) return null;
+  const bpath = Base64.encode(vpath);
+  const h = bpath.replace('/', '*');
+  const p = h.replace('+', '-');
+  return `/resource/${p}`;
+};
+
+
 class AccountView extends Taro.PureComponent {
   config = {
     enablePullDownRefresh: true,
   };
   state = {
-    current:1,
   };
   static defaultProps = {
     accountMessage:{},
   };
 
   constructor () {
-    super(...arguments)
+    super(...arguments);
     this.state = {
       current: 0
     }
   }
 
-  componentWillUnmount () {
-
-  }
-  componentDidShow () {
-
-  }
-
-  componentDidHide () { }
-
-  handleClick (value) {
-    this.setState({
-      current: value
-    })
-  }
 
   render() {
-
-    const tabList = [{ title: '课程'},{title:'笔记' }];
     return (
       <View className='account'>
         <View className="account-header">
-          {/*<View className="personal-name">小宝</View>*/}
           <View className='header-back'>
             <View className='header-top'>
             <AtAvatar
               circle
               size="normal"
               className='account-avator'
-              image={AvatarUrl}
+              image={buildAvatarPath(this.props.accountMessage.avator)}
             />
             <View className='account-content'>
               <View className='account-nickname'>{this.props.accountMessage.nickname}</View>

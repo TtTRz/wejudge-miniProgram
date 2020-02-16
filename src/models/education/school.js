@@ -11,7 +11,6 @@ export  default {
 
     *getSchool({payload},{call, put, select}){
       const req = yield  call(school.getSchool,payload);
-      console.log("req",req);
       yield put({
         type:'save',
         payload:{
