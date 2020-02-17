@@ -2,9 +2,9 @@ import Taro, { Component, Config } from '@tarojs/taro'
 import 'taro-ui/dist/style/index.scss'
 import dva from './utils/dva'
 import models from './models/index';
-import './app.scss'
 import { Provider } from '@tarojs/redux';
-import './utils/zhcn_moment.js'
+import './utils/zhcn_moment.js';
+import './style/custom-variables.scss';
 
 // 如果需要在 h5 环境中开启 React Devtools
 // 取消以下注释：

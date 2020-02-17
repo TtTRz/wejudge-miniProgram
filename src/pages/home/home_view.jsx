@@ -52,7 +52,7 @@ class HomeView extends Taro.PureComponent {
   };
   render() {
     return (
-      <View className='home-view'>
+      <View className='home-view' style='height:100%'>
         <View className='home-content'>
           {this.state.currentTab === 0 && <View className="home-view">
             {/*<Account/>*/}

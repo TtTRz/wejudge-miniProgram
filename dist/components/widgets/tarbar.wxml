@@ -6,7 +6,7 @@
                     <view class="icon">
                         <view class="{{current === index ? item.iconNameCurrent : item.iconName}}"></view>
                     </view>
-                    <view class="{{current == index ? 'title-select' : 'title'}}">{{item.title}}</view>
+                    <view class="{{current === index ? 'title-select' : 'title'}}">{{item.title}}</view>
                 </view>
             </view>
         </view>

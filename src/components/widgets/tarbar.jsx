@@ -35,7 +35,7 @@ class TabBar extends Taro.PureComponent{
                   <View className='icon'>
                     <View className={this.props.current === index ? item.iconNameCurrent : item.iconName}></View>
                   </View>
-                  <View className={this.props.current == index ?'title-select' : 'title'}>
+                  <View className={this.props.current === index ?'title-select' : 'title'}>
                     {item.title}
                   </View>
                 </View>

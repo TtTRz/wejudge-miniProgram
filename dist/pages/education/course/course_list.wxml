@@ -2,35 +2,37 @@
     <block>
         <view class="courseList-view">
             <view class="courseList-row">
-                <block wx:for="{{loopArray0}}" wx:for-item="item" wx:for-index="index">
-                    <block wx:if="{{selectorChecked === '全部'}}">
-                        <view class="courseList-item" bindtap="anonymousFunc0" data-e-tap-so="this" data-e-tap-a-a="{{item._$indexKey}}">
-                            <at-avatar compid="{{item.$compid__7}}"></at-avatar>
-                            <view class="courseList-content">
-                                <view class="courseList-title">{{item.$original.name}}</view>
-                                <view class="courseList-description">{{item.$original.description}}</view>
+                <block wx:if="{{courselist.length !== 0}}">
+                    <block wx:for="{{loopArray0}}" wx:for-item="item" wx:for-index="index">
+                        <block wx:if="{{selectorChecked === '全部'}}">
+                            <view class="courseList-item" bindtap="anonymousFunc0" data-e-tap-so="this" data-e-tap-a-a="{{item._$indexKey}}">
+                                <at-avatar compid="{{item.$compid__7}}"></at-avatar>
+                                <view class="courseList-content">
+                                    <view class="courseList-title">{{item.$original.name}}</view>
+                                    <view class="courseList-description">{{item.$loopState__temp2}}</view>
+                                </view>
                             </view>
-                        </view>
-                    </block>
-                    <block wx:elif="{{selectorChecked === '已结束' && item.det >= 0}}">
-                        <view class="courseList-item" bindtap="anonymousFunc1" data-e-tap-so="this" data-e-tap-a-a="{{item._$indexKey2}}">
-                            <at-avatar compid="{{item.$compid__8}}"></at-avatar>
-                            <view class="courseList-content">
-                                <view class="courseList-title">{{item.$original.name}}</view>
-                                <view class="courseList-description">{{item.$original.description}}</view>
+                        </block>
+                        <block wx:elif="{{selectorChecked === '已结束' && item.det >= 0}}">
+                            <view class="courseList-item" bindtap="anonymousFunc1" data-e-tap-so="this" data-e-tap-a-a="{{item._$indexKey2}}">
+                                <at-avatar compid="{{item.$compid__8}}"></at-avatar>
+                                <view class="courseList-content">
+                                    <view class="courseList-title">{{item.$original.name}}</view>
+                                    <view class="courseList-description">{{item.$loopState__temp4}}</view>
+                                </view>
                             </view>
-                        </view>
-                    </block>
-                    <block wx:elif="{{selectorChecked === '正在进行' && item.dst >= 0 && item.det < 0}}">
-                        <view class="courseList-item" bindtap="anonymousFunc2" data-e-tap-so="this" data-e-tap-a-a="{{item._$indexKey3}}">
-                            <at-avatar compid="{{item.$compid__9}}"></at-avatar>
-                            <view class="courseList-content">
-                                <view class="courseList-title">{{item.$original.name}}</view>
-                                <view class="courseList-description">{{item.$original.description}}</view>
+                        </block>
+                        <block wx:elif="{{selectorChecked === '正在进行' && item.dst >= 0 && item.det < 0}}">
+                            <view class="courseList-item" bindtap="anonymousFunc2" data-e-tap-so="this" data-e-tap-a-a="{{item._$indexKey3}}">
+                                <at-avatar compid="{{item.$compid__9}}"></at-avatar>
+                                <view class="courseList-content">
+                                    <view class="courseList-title">{{item.$original.name}}</view>
+                                    <view class="courseList-description">{{item.$loopState__temp6}}</view>
+                                </view>
                             </view>
-                        </view>
+                        </block>
+                        <block wx:else></block>
                     </block>
-                    <block wx:else></block>
                 </block>
             </view>
         </view>
@@ -40,13 +42,13 @@
     <view class="course-view">
         <at-tabs compid="{{$compid__10}}">
             <at-tabs-pane compid="{{$compid__11}}">
-                <view style="background-color: #e8e9ea;">
+                <view style="background-color: #e8e9ea;height:100%">
                     <picker mode="selector" range="{{selector}}" bindchange="onChange">
                         <view class="picker" style="float:right ;font-size: 10px; color:#98999c;margin:3px">{{selectorChecked}}
                             <at-icon compid="{{$compid__12}}"></at-icon>
                         </view>
                     </picker>
-                    <template is="renderCourseList" data="{{...anonymousState__temp}}"></template>
+                    <template is="renderCourseList" data="{{...anonymousState__temp7}}"></template>
                 </view>
             </at-tabs-pane>
             <at-tabs-pane compid="{{$compid__13}}">

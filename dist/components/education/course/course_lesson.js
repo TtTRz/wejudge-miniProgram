@@ -1,1 +1,308 @@
-(wx.webpackJsonp=wx.webpackJsonp||[]).push([[4],{"867":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{"value":!0});var v=function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function sliceIterator(e,t){var n=[],o=!0,r=!1,i=void 0;try{for(var a,s=e[Symbol.iterator]();!(o=(a=s.next()).done)&&(n.push(a.value),!t||n.length!==t);o=!0);}catch(e){r=!0,i=e}finally{try{!o&&s.return&&s.return()}finally{if(r)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")},o=function(e,t,n){return t&&defineProperties(e.prototype,t),n&&defineProperties(e,n),e};function defineProperties(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}var r,i,a,b=n(1),s=function _interopRequireDefault(e){return e&&e.__esModule?e:{"default":e}}(b),u=n(37),$=n(166);function _possibleConstructorReturn(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}var l=(0,u.connect)(function mapStateToProps(e){return{"lesson":e.course.lessonList}})((function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{"constructor":{"value":e,"enumerable":!1,"writable":!0,"configurable":!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(CourseView,s.default.PureComponent),o(CourseView,[{"key":"_constructor","value":function _constructor(e){(function get(e,t,n){null===e&&(e=Function.prototype);var o=Object.getOwnPropertyDescriptor(e,t);if(void 0===o){var r=Object.getPrototypeOf(e);return null===r?void 0:get(r,t,n)}if("value"in o)return o.value;var i=o.get;return void 0!==i?i.call(n):void 0})(CourseView.prototype.__proto__||Object.getPrototypeOf(CourseView.prototype),"_constructor",this).call(this,e),this.$$refs=new s.default.RefsArray}},{"key":"componentWillMount","value":function componentWillMount(){this.props.dispatch({"type":"course/getLessonList","payload":{"courseId":this.props.courseId}})}},{"key":"componentWillUnmount","value":function componentWillUnmount(){}},{"key":"componentDidShow","value":function componentDidShow(){}},{"key":"componentDidHide","value":function componentDidHide(){}},{"key":"handleLessonClick","value":function handleLessonClick(e){s.default.navigateTo({"url":"/pages/education/lesson/lesson_view?cid="+this.props.courseId+"&lid="+e})}},{"key":"_createListData","value":function _createListData(f){var d=this;return function(e){return{"loopArray3":e.map(function(e,t){e={"$original":(0,b.internal_get_original)(e)};var n=0!==(0,$.get)(e.$original,"children",[]).length?d._createSecondListData(f+"izzzzzzzzz"+t)(e.$original.children,t):null,o=0!==(0,$.get)(e.$original,"children",[]).length,r=(0,b.genCompid)(f+"bdzzzzzzzz"+t,!0),i=v(r,2),a=i[0],s=i[1];b.propsManager.set({"open":"true","title":e.$original.title},s,a);var u=(0,b.genCompid)(f+"bezzzzzzzz"+t,!0),l=v(u,2),c=l[0],p=l[1];return b.propsManager.set({"hasBorder":!1},p,c),{"$loopState__temp2":n,"$loopState__temp7":o,"$compid__24":s,"$compid__25":p,"$original":e.$original}}),"data":e}}}},{"key":"_createSecondListData","value":function _createSecondListData(h){var m=this;return function(e,g){return{"loopArray4":e.map(function(e,t){var n=(e={"$original":(0,b.internal_get_original)(e)}).$original.is_group&&0!==(0,$.get)(e.$original,"children",[]).length?m._createThirdListData(h+"jzzzzzzzzz"+t)(e.$original.children,g,t):null,o="bazzz"+t;m.anonymousFunc0Map[o]=function(){return m.handleLessonClick(e.$original.id)};var r=e.$original.is_group&&0!==(0,$.get)(e.$original,"children",[]).length,i=(0,b.genCompid)(h+"bfzzzzzzzz"+t,!0),a=v(i,2),s=a[0],u=a[1];r&&b.propsManager.set({"open":"true","title":e.$original.title},u,s);var l=(0,b.genCompid)(h+"bgzzzzzzzz"+t,!0),c=v(l,2),p=c[0],f=c[1];r&&b.propsManager.set({"hasBorder":!1},f,p);var d=(0,b.genCompid)(h+"bhzzzzzzzz"+t,!0),_=v(d,2),z=_[0],y=_[1];return r||b.propsManager.set({"note":e.$original.title,"onClick":m.anonymousFunc0.bind(m,o)},y,z),{"$loopState__temp4":n,"_$indexKey":o,"$loopState__temp9":r,"$compid__26":u,"$compid__27":f,"$compid__28":y,"$original":e.$original}}),"list":e}}}},{"key":"_createThirdListData","value":function _createThirdListData(s){var u=this;return function(e,t,n){return{"loopArray5":e.map(function(e,t){e={"$original":(0,b.internal_get_original)(e)};var n="bbzzz"+t;u.anonymousFunc1Map[n]=function(){return u.handleLessonClick(e.$original.id)};var o=(0,b.genCompid)(s+"bizzzzzzzz"+t,!0),r=v(o,2),i=r[0],a=r[1];return b.propsManager.set({"note":e.$original.title,"onClick":u.anonymousFunc1.bind(u,n)},a,i),{"_$indexKey2":n,"$compid__29":a,"$original":e.$original}}),"list":e}}}},{"key":"_createData","value":function _createData(e,t,n){this.__state=e||this.state||{},this.__props=t||this.props||{};var o=this.$prefix,r=this.__props.lesson.data,i=this._createListData(o+"bczzzzzzzz")(r);return Object.assign(this.__state,{"anonymousState__temp5":i}),this.__state}},{"key":"anonymousFunc0","value":function anonymousFunc0(e){for(var t,n=arguments.length,o=Array(1<n?n-1:0),r=1;r<n;r++)o[r-1]=arguments[r];return this.anonymousFunc0Map[e]&&(t=this.anonymousFunc0Map)[e].apply(t,o)}},{"key":"anonymousFunc1","value":function anonymousFunc1(e){for(var t,n=arguments.length,o=Array(1<n?n-1:0),r=1;r<n;r++)o[r-1]=arguments[r];return this.anonymousFunc1Map[e]&&(t=this.anonymousFunc1Map)[e].apply(t,o)}}]),a=i=CourseView,i.$$events=[],i.propTypes={},i.defaultProps={"lesson":{}},i.$$componentPath="components/education/course/course_lesson",r=a))||r;function CourseView(){var e,t,n;!function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,CourseView);for(var o=arguments.length,r=Array(o),i=0;i<o;i++)r[i]=arguments[i];return(t=n=_possibleConstructorReturn(this,(e=CourseView.__proto__||Object.getPrototypeOf(CourseView)).call.apply(e,[this].concat(r)))).$usedState=["anonymousState__temp5","current","open","dispatch","courseId","lesson"],n.config={"enablePullDownRefresh":!0,"navigationBarTitleText":""},n.state={"current":0,"open":!0},n.anonymousFunc0Map={},n.anonymousFunc1Map={},n.customComponents=["AtAccordion","AtList","AtListItem"],_possibleConstructorReturn(n,t)}t.default=l,Component(n(1).default.createComponent(l))}},[[867,0,1]]]);
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["components/education/course/course_lesson"],{
+
+/***/ "./src/components/education/course/course_lesson.jsx":
+/*!***********************************************************!*\
+  !*** ./src/components/education/course/course_lesson.jsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+var _dec, _class, _class2, _temp2;
+
+var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js");
+
+var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
+
+var _redux = __webpack_require__(/*! @tarojs/redux */ "./node_modules/@tarojs/redux/index.js");
+
+var _lodashEs = __webpack_require__(/*! lodash-es */ "./node_modules/lodash-es/lodash.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var mapStateToProps = function mapStateToProps(state, props) {
+  return {
+    lesson: state.course.lessonList
+  };
+};
+
+var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_temp2 = _class2 = function (_Taro$PureComponent) {
+  _inherits(CourseView, _Taro$PureComponent);
+
+  function CourseView() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, CourseView);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CourseView.__proto__ || Object.getPrototypeOf(CourseView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp5", "current", "open", "dispatch", "courseId", "lesson"], _this.config = {
+      enablePullDownRefresh: true,
+      navigationBarTitleText: ''
+
+    }, _this.state = {
+      current: 0,
+      open: true
+    }, _this.anonymousFunc0Map = {}, _this.anonymousFunc1Map = {}, _this.customComponents = ["AtAccordion", "AtList", "AtListItem"], _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(CourseView, [{
+    key: '_constructor',
+    value: function _constructor(props) {
+      _get(CourseView.prototype.__proto__ || Object.getPrototypeOf(CourseView.prototype), '_constructor', this).call(this, props);
+
+      this.$$refs = new _taroWeapp2.default.RefsArray();
+    }
+  }, {
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.props.dispatch({
+        type: 'course/getLessonList',
+        payload: {
+          courseId: this.props.courseId
+        }
+      });
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {}
+  }, {
+    key: 'componentDidShow',
+    value: function componentDidShow() {}
+  }, {
+    key: 'componentDidHide',
+    value: function componentDidHide() {}
+  }, {
+    key: 'handleLessonClick',
+    value: function handleLessonClick(id) {
+      _taroWeapp2.default.navigateTo({
+        url: "/pages/education/lesson/lesson_view?cid=" + this.props.courseId + '&lid=' + id
+      });
+    }
+  }, {
+    key: '_createListData',
+    value: function _createListData(_$uid) {
+      var _this2 = this;
+
+      return function (data) {
+        var loopArray3 = data.map(function (item, index) {
+          item = {
+            $original: (0, _taroWeapp.internal_get_original)(item)
+          };
+          var $loopState__temp2 = (0, _lodashEs.get)(item.$original, 'children', []).length !== 0 ? _this2._createSecondListData(_$uid + "izzzzzzzzz" + ('' + index))(item.$original.children, index) : null;
+          var $loopState__temp7 = (0, _lodashEs.get)(item.$original, 'children', []).length !== 0;
+
+          var _genCompid = (0, _taroWeapp.genCompid)(_$uid + 'bdzzzzzzzz' + index, true),
+              _genCompid2 = _slicedToArray(_genCompid, 2),
+              $prevCompid__24 = _genCompid2[0],
+              $compid__24 = _genCompid2[1];
+
+          _taroWeapp.propsManager.set({
+            "open": "true",
+            "title": item.$original.title
+          }, $compid__24, $prevCompid__24);
+
+          var _genCompid3 = (0, _taroWeapp.genCompid)(_$uid + 'bezzzzzzzz' + index, true),
+              _genCompid4 = _slicedToArray(_genCompid3, 2),
+              $prevCompid__25 = _genCompid4[0],
+              $compid__25 = _genCompid4[1];
+
+          _taroWeapp.propsManager.set({
+            "hasBorder": false
+          }, $compid__25, $prevCompid__25);
+          return {
+            $loopState__temp2: $loopState__temp2,
+            $loopState__temp7: $loopState__temp7,
+            $compid__24: $compid__24,
+            $compid__25: $compid__25,
+            $original: item.$original
+          };
+        });
+        return {
+          loopArray3: loopArray3,
+          data: data
+        };
+      };
+    }
+  }, {
+    key: '_createSecondListData',
+    value: function _createSecondListData(_$uid) {
+      var _this3 = this;
+
+      return function (list, index) {
+        var loopArray4 = list.map(function (item, ix) {
+          item = {
+            $original: (0, _taroWeapp.internal_get_original)(item)
+          };
+          var $loopState__temp4 = item.$original.is_group && (0, _lodashEs.get)(item.$original, 'children', []).length !== 0 ? _this3._createThirdListData(_$uid + "jzzzzzzzzz" + ('' + ix))(item.$original.children, index, ix) : null;
+
+          var _$indexKey = "bazzz" + ix;
+
+          _this3.anonymousFunc0Map[_$indexKey] = function () {
+            return _this3.handleLessonClick(item.$original.id);
+          };
+
+          var $loopState__temp9 = item.$original.is_group && (0, _lodashEs.get)(item.$original, 'children', []).length !== 0;
+
+          var _genCompid5 = (0, _taroWeapp.genCompid)(_$uid + 'bfzzzzzzzz' + ix, true),
+              _genCompid6 = _slicedToArray(_genCompid5, 2),
+              $prevCompid__26 = _genCompid6[0],
+              $compid__26 = _genCompid6[1];
+
+          $loopState__temp9 && _taroWeapp.propsManager.set({
+            "open": "true",
+            "title": item.$original.title
+          }, $compid__26, $prevCompid__26);
+
+          var _genCompid7 = (0, _taroWeapp.genCompid)(_$uid + 'bgzzzzzzzz' + ix, true),
+              _genCompid8 = _slicedToArray(_genCompid7, 2),
+              $prevCompid__27 = _genCompid8[0],
+              $compid__27 = _genCompid8[1];
+
+          $loopState__temp9 && _taroWeapp.propsManager.set({
+            "hasBorder": false
+          }, $compid__27, $prevCompid__27);
+
+          var _genCompid9 = (0, _taroWeapp.genCompid)(_$uid + 'bhzzzzzzzz' + ix, true),
+              _genCompid10 = _slicedToArray(_genCompid9, 2),
+              $prevCompid__28 = _genCompid10[0],
+              $compid__28 = _genCompid10[1];
+
+          !$loopState__temp9 && _taroWeapp.propsManager.set({
+            "note": item.$original.title,
+            "onClick": _this3.anonymousFunc0.bind(_this3, _$indexKey)
+          }, $compid__28, $prevCompid__28);
+          return {
+            $loopState__temp4: $loopState__temp4,
+            _$indexKey: _$indexKey,
+            $loopState__temp9: $loopState__temp9,
+            $compid__26: $compid__26,
+            $compid__27: $compid__27,
+            $compid__28: $compid__28,
+            $original: item.$original
+          };
+        });
+        return {
+          loopArray4: loopArray4,
+          list: list
+        };
+      };
+    }
+  }, {
+    key: '_createThirdListData',
+    value: function _createThirdListData(_$uid) {
+      var _this4 = this;
+
+      return function (list, index, ix) {
+        var loopArray5 = list.map(function (item, i) {
+          item = {
+            $original: (0, _taroWeapp.internal_get_original)(item)
+          };
+
+          var _$indexKey2 = "bbzzz" + i;
+
+          _this4.anonymousFunc1Map[_$indexKey2] = function () {
+            return _this4.handleLessonClick(item.$original.id);
+          };
+
+          var _genCompid11 = (0, _taroWeapp.genCompid)(_$uid + 'bizzzzzzzz' + i, true),
+              _genCompid12 = _slicedToArray(_genCompid11, 2),
+              $prevCompid__29 = _genCompid12[0],
+              $compid__29 = _genCompid12[1];
+
+          _taroWeapp.propsManager.set({
+            "note": item.$original.title,
+            "onClick": _this4.anonymousFunc1.bind(_this4, _$indexKey2)
+          }, $compid__29, $prevCompid__29);
+          return {
+            _$indexKey2: _$indexKey2,
+            $compid__29: $compid__29,
+            $original: item.$original
+          };
+        });
+        return {
+          loopArray5: loopArray5,
+          list: list
+        };
+      };
+    }
+  }, {
+    key: '_createData',
+    value: function _createData() {
+      this.__state = arguments[0] || this.state || {};
+      this.__props = arguments[1] || this.props || {};
+      var __isRunloopRef = arguments[2];
+      var __prefix = this.$prefix;
+      ;
+
+      var data = this.__props.lesson.data;
+
+
+      var anonymousState__temp5 = this._createListData(__prefix + "bczzzzzzzz")(data);
+
+      Object.assign(this.__state, {
+        anonymousState__temp5: anonymousState__temp5
+      });
+      return this.__state;
+    }
+  }, {
+    key: 'anonymousFunc0',
+    value: function anonymousFunc0(_$indexKey) {
+      var _anonymousFunc0Map;
+
+      ;
+
+      for (var _len2 = arguments.length, e = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        e[_key2 - 1] = arguments[_key2];
+      }
+
+      return this.anonymousFunc0Map[_$indexKey] && (_anonymousFunc0Map = this.anonymousFunc0Map)[_$indexKey].apply(_anonymousFunc0Map, e);
+    }
+  }, {
+    key: 'anonymousFunc1',
+    value: function anonymousFunc1(_$indexKey2) {
+      var _anonymousFunc1Map;
+
+      ;
+
+      for (var _len3 = arguments.length, e = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+        e[_key3 - 1] = arguments[_key3];
+      }
+
+      return this.anonymousFunc1Map[_$indexKey2] && (_anonymousFunc1Map = this.anonymousFunc1Map)[_$indexKey2].apply(_anonymousFunc1Map, e);
+    }
+  }]);
+
+  return CourseView;
+}(_taroWeapp2.default.PureComponent), _class2.$$events = [], _class2.propTypes = {}, _class2.defaultProps = {
+  lesson: {}
+}, _class2.$$componentPath = "components/education/course/course_lesson", _temp2)) || _class);
+exports.default = CourseView;
+
+Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(CourseView));
+
+/***/ })
+
+},[["./src/components/education/course/course_lesson.jsx","runtime","vendors"]]]);

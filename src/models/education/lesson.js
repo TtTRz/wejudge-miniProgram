@@ -60,6 +60,7 @@ export  default {
           ids:req.data.notes.map((item) => item.id),
         }
       })
+      return req.data;
     },
     * getNote({payload}, {call, put, select}) {
       const req = yield call(lesson.getNote, payload);

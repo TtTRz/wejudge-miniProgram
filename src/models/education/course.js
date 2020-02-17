@@ -70,13 +70,30 @@ export  default {
 //获取课程公告
     * getAnnouncementsList({payload}, {call, put, select}) {
       const req = yield  call(course.getAnnouncementsList, payload);
+      console.log("payload",payload);
+      // yield put({
+      //   type: 'save',
+      //   payload: {
+      //     announcementsList: req
+      //   }
+      // });
+      yield  put ({
+        type:'mgetAnnouncementsList',
+        payload:{
+          ids:req.data.course_announcements.map((item) => item.id),
+          courseId:payload.courseId,
+        },
+      });
+    },
+    //批量课程公告
+    * mgetAnnouncementsList({payload}, {call, put, select}) {
+      const req = yield  call(course.mgetAnnouncementsList, payload);
       yield put({
         type: 'save',
         payload: {
-          announcementsList: req
+          mannouncementsList: req.data
         }
       });
-      return req;
     },
 
     //获取课程课堂列表

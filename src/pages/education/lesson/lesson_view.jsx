@@ -12,6 +12,8 @@ const mapStateToProps = (state,props) => {
     videos:state.lesson.videos,
     noteList:state.lesson.note,
     asgnList:state.lesson.asgn,
+    isLoading:state.loading.models['lesson'],
+
   };
 };
 

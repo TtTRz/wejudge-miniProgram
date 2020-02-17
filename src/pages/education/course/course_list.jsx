@@ -2,9 +2,11 @@ import Taro from '@tarojs/taro'
 import { View,Picker } from '@tarojs/components'
 import {AtAvatar, AtIcon, AtTabs, AtTabsPane} from "taro-ui";
 import {connect} from '@tarojs/redux'
+import { get, truncate } from 'lodash-es';
 import ImageURL from "../../../asset/image/course_icon.jpg";
 import  './course_list.scss'
 import moment from "moment";
+import {filterHTML,convertHtmlToText} from '../../../utils/filter'
 
 const MILLISECOND = 1000;
 
@@ -31,7 +33,7 @@ const defaultTimezoneOffset = 8;
 const mapStateToProps = (state,props) => {
     return {
       courselist: state.course.courselist,
-      isLoading:state.loading.models['course'],
+      isLoading:state.loading.models['courseList'],
       account:state.account.data,
     };
 };
@@ -52,12 +54,11 @@ class CourseView extends Taro.PureComponent {
   };
 
   static defaultProps = {
-    courselist:{},
+    courselist:null,
   };
 
 
   componentWillMount() {
-    console.log("this.props",this.props);
     if(this.props.account.role !== 99) {
       this.props.dispatch({
         type: 'course/getDashboard',
@@ -95,7 +96,7 @@ class CourseView extends Taro.PureComponent {
     return(
     <View className='courseList-view'>
       <View className='courseList-row'>
-        {courselist.map((item, index) => {
+        {courselist.length !==0  && courselist.map((item, index) => {
           const dst = diffTimeSeconds(item.start_time);
           const det = diffTimeSeconds(item.end_time);
           if(selectorChecked === '全部'){
@@ -108,7 +109,7 @@ class CourseView extends Taro.PureComponent {
                 />
                 <View className='courseList-content'>
                   <View className='courseList-title'>{item.name}</View>
-                  <View className='courseList-description'>{item.description}</View>
+                  <View className='courseList-description'>{convertHtmlToText(item.description)}</View>
                 </View>
               </View>
             )
@@ -122,7 +123,8 @@ class CourseView extends Taro.PureComponent {
                 />
                 <View className='courseList-content'>
                   <View className='courseList-title'>{item.name}</View>
-                  <View className='courseList-description'>{item.description}</View>
+                  <View className='courseList-description'>{convertHtmlToText(item.description)}</View>
+
                 </View>
               </View>
             )
@@ -137,7 +139,7 @@ class CourseView extends Taro.PureComponent {
                 />
                 <View className='courseList-content'>
                   <View className='courseList-title'>{item.name}</View>
-                  <View className='courseList-description'>{item.description}</View>
+                  <View className='courseList-description'>{convertHtmlToText(item.description)}</View>
                 </View>
               </View>
             )
@@ -149,13 +151,13 @@ class CourseView extends Taro.PureComponent {
 
   render() {
 
-    const tabList = [{ title: '课堂' }, { title: '计划' } ];
+    const tabList = [{ title: '课堂' }, { title: '待办事项' } ];
 
     return (
       <View className="course-view">
         <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
-          <AtTabsPane current={this.state.current} index={0} >
-            <View style='background-color: #e8e9ea;' >
+          <AtTabsPane current={this.state.current} index={0}  style='height:100%'>
+            <View style='background-color: #e8e9ea;height:100%' >
 
               <Picker mode='selector' range={this.state.selector} onChange={this.onChange}>
                 <View className='picker' style='float:right ;font-size: 10px; color:#98999c;margin:3px'>

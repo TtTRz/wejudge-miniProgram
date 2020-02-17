@@ -1,1 +1,21 @@
-.courseList-view{padding:5%;min-height:100%;margin-bottom:130rpx}.courseList-view .courseList-row .courseList-item{padding:30rpx;margin-top:30rpx;display:flex;height:160rpx;width:90%;background:#fff}.courseList-view .courseList-row .courseList-item .courseList-image{margin-top:10rpx}.courseList-view .courseList-row .courseList-item .courseList-content{display:block;padding:22rpx;margin-left:20rpx}.courseList-view .courseList-row .courseList-item .courseList-content .courseList-description{font-size:25rpx;color:#98999c}
+.courseList-view {
+  padding: 5%;
+  min-height: 100%;
+  margin-bottom: 130rpx; }
+  .courseList-view .courseList-row .courseList-item {
+    padding: 30rpx;
+    margin-top: 30rpx;
+    display: flex;
+    height: 160rpx;
+    width: 90%;
+    background: white; }
+    .courseList-view .courseList-row .courseList-item .courseList-image {
+      margin-top: 10rpx; }
+    .courseList-view .courseList-row .courseList-item .courseList-content {
+      display: block;
+      padding: 22rpx;
+      margin-left: 20rpx; }
+      .courseList-view .courseList-row .courseList-item .courseList-content .courseList-description {
+        font-size: 25rpx;
+        color: #98999c; }
+

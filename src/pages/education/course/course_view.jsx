@@ -8,6 +8,7 @@ import './course_view.scss'
 import Announcements from "../../../components/education/course/course_announcements";
 import Lesson from "../../../components/education/course/course_lesson"
 import ImageURL from "../../../asset/image/course_icon.jpg";
+import {filterHTML,convertHtmlToText} from '../../../utils/filter'
 
 const i18nNamespace =  'zh_CN';
 const FORMAT_PATTERN = {
@@ -39,6 +40,7 @@ const mapStateToProps = (state,props) => {
     school:state.school.school,
     teacher:state.account.message,
     announcements:state.course.announcements,
+    isLoading:state.loading.models['courseView'],
   };
 };
 
@@ -136,9 +138,9 @@ class CourseView extends Taro.PureComponent {
                   <View className='at-article__h2'>开课时间：</View>
                   <View className='at-article__p'>{formatTime(this.props.course.create_time, 'LONG_DATETIME')} -- {formatTime(this.props.course.end_time, 'LONG_DATETIME')}</View>
                   <View className='at-article__h2'>课程介绍：</View>
-                  <View className='at-article__p'> {get(this.props.course,"description") }</View>
+                  <View className='at-article__p'> {convertHtmlToText(get(this.props.course,"description") )}</View>
                   <View className='at-article__h2'>教学计划：</View>
-                  <View className='at-article__p'> {get(this.props.extra,"teach_plan")}</View>
+                  <View className='at-article__p'> {convertHtmlToText(get(this.props.extra,"teach_plan"))}</View>
                 </View>
               </View>
             </AtTabsPane>
@@ -148,7 +150,7 @@ class CourseView extends Taro.PureComponent {
               />
             </AtTabsPane>
             <AtTabsPane current={this.state.current} index={2}>
-              <View>
+              <View >
                 <Announcements
                     courseId={this.$router.params.cid}
                 />

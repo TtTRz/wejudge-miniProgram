@@ -1,8 +1,19 @@
+<template name="renderAsgnStatusTag">
+    <block>
+        <block wx:if="{{status.role === 'manage'}}">
+            <view color="{{_$color}}">{{status.checked}} / {{status.reports}} 批改</view>
+        </block>
+        <block wx:elif="{{!status.permission}}">
+            <view color="grey">无访问权限</view>
+        </block>
+        <view color="{{timeStatus.status.grey}}" wx:else>{{timeStatus.desc}}</view>
+    </block>
+</template>
 <block wx:if="{{$taroCompReady}}">
     <view class="homework-view">
         <at-list>
             <block wx:if="{{asgns}}">
-                <at-list-item wx:for="{{loopArray7}}" wx:for-item="item" wx:for-index="index" compid="{{item.$compid__37}}"></at-list-item>
+                <view wx:for="{{loopArray7}}" wx:for-item="item" wx:for-index="index">{{item.timeStatus.desc}}</view>
             </block>
         </at-list>
     </view>

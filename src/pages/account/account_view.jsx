@@ -23,7 +23,7 @@ function Role (n) {
 }
 
 
-export const buildAvatarPath = (vpath) => {
+export const buildResourcePath = (vpath) => {
   if (!vpath) return null;
   const bpath = Base64.encode(vpath);
   const h = bpath.replace('/', '*');
@@ -60,7 +60,7 @@ class AccountView extends Taro.PureComponent {
               circle
               size="normal"
               className='account-avator'
-              image={buildAvatarPath(this.props.accountMessage.avator)}
+              image={buildResourcePath(this.props.accountMessage.avator)}
             />
             <View className='account-content'>
               <View className='account-nickname'>{this.props.accountMessage.nickname}</View>

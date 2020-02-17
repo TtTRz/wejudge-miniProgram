@@ -60,12 +60,23 @@ export  const getAnnouncementsList = (payload) =>{
         url:pattern({cid:payload.courseId}),
         method: 'get',
         data:{
-            page:1,
-            total:0,
-            limit:99
         }
     })
 };
+
+//批量获取课程公告
+export  const mgetAnnouncementsList = (payload) =>{
+    const pattern = compile(API.COURSE.MGETANNOUNCEMENTSLIST);
+    console.log("payload",payload);
+    return Request({
+        url:pattern({cid:payload.courseId}),
+        method: 'post',
+        data:{
+           ids:payload.ids,
+        }
+    })
+};
+
 
 
 

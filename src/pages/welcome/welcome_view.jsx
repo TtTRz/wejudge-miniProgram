@@ -7,7 +7,7 @@ import AvatarUrl from '../../../src/asset/image/course_icon.jpg'
 import LoadingView from "./loading";
 
 const mapStateToProps = (state,props) => {
-  const isLoading = state.loading.models['account'];
+  const isLoading = state.loading.models['welcome'];
   return {
     account: state.account,
     isLoading

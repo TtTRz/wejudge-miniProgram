@@ -1,1 +1,172 @@
-(wx.webpackJsonp=wx.webpackJsonp||[]).push([[3],{"869":function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{"value":!0});var s=function(e,t){if(Array.isArray(e))return e;if(Symbol.iterator in Object(e))return function sliceIterator(e,t){var n=[],o=!0,r=!1,i=void 0;try{for(var u,a=e[Symbol.iterator]();!(o=(u=a.next()).done)&&(n.push(u.value),!t||n.length!==t);o=!0);}catch(e){r=!0,i=e}finally{try{!o&&a.return&&a.return()}finally{if(r)throw i}}return n}(e,t);throw new TypeError("Invalid attempt to destructure non-iterable instance")},o=function(e,t,n){return t&&defineProperties(e.prototype,t),n&&defineProperties(e,n),e};function defineProperties(e,t){for(var n=0;n<t.length;n++){var o=t[n];o.enumerable=o.enumerable||!1,o.configurable=!0,"value"in o&&(o.writable=!0),Object.defineProperty(e,o.key,o)}}var r,i,u,p=n(1),a=_interopRequireDefault(p),c=n(37),l=_interopRequireDefault(n(0));function _interopRequireDefault(e){return e&&e.__esModule?e:{"default":e}}function _possibleConstructorReturn(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!=typeof t&&"function"!=typeof t?e:t}function q(e){return function createMoment(e){return(0,l.default)(1e3*e).utcOffset(8)}(e).fromNow()}var f=(0,c.connect)(function mapStateToProps(e){return{"announcementsList":e.course.announcementsList}})((function _inherits(e,t){if("function"!=typeof t&&null!==t)throw new TypeError("Super expression must either be null or a function, not "+typeof t);e.prototype=Object.create(t&&t.prototype,{"constructor":{"value":e,"enumerable":!1,"writable":!0,"configurable":!0}}),t&&(Object.setPrototypeOf?Object.setPrototypeOf(e,t):e.__proto__=t)}(Announcements,a.default.PureComponent),o(Announcements,[{"key":"_constructor","value":function _constructor(e){(function get(e,t,n){null===e&&(e=Function.prototype);var o=Object.getOwnPropertyDescriptor(e,t);if(void 0===o){var r=Object.getPrototypeOf(e);return null===r?void 0:get(r,t,n)}if("value"in o)return o.value;var i=o.get;return void 0!==i?i.call(n):void 0})(Announcements.prototype.__proto__||Object.getPrototypeOf(Announcements.prototype),"_constructor",this).call(this,e),this.$$refs=new a.default.RefsArray}},{"key":"componentWillMount","value":function componentWillMount(){this.props.dispatch({"type":"course/getAnnouncementsList","payload":{"courseId":this.props.courseId}})}},{"key":"componentWillUnmount","value":function componentWillUnmount(){}},{"key":"componentDidShow","value":function componentDidShow(){}},{"key":"componentDidHide","value":function componentDidHide(){}},{"key":"_createData","value":function _createData(e,t,n){this.__state=e||this.state||{},this.__props=t||this.props||{};var a=this.$prefix,c=this.__props.announcementsList.data.course_announcements,o=c?c.map(function(e,t){e={"$original":(0,p.internal_get_original)(e)};var n=c?q(e.$original.update_time):null,o=(0,p.genCompid)(a+"bjzzzzzzzz"+t,!0),r=s(o,2),i=r[0],u=r[1];return p.propsManager.set({"title":e.$original.title,"note":n,"arrow":"right"},u,i),{"$loopState__temp2":n,"$compid__30":u,"$original":e.$original}}):[];return Object.assign(this.__state,{"loopArray6":o,"course_announcements":c}),this.__state}}]),u=i=Announcements,i.$$events=[],i.propTypes={},i.defaultProps={"course_announcements":{},"announcementsList":{}},i.$$componentPath="components/education/course/course_announcements",r=u))||r;function Announcements(){var e,t,n;!function _classCallCheck(e,t){if(!(e instanceof t))throw new TypeError("Cannot call a class as a function")}(this,Announcements);for(var o=arguments.length,r=Array(o),i=0;i<o;i++)r[i]=arguments[i];return(t=n=_possibleConstructorReturn(this,(e=Announcements.__proto__||Object.getPrototypeOf(Announcements)).call.apply(e,[this].concat(r)))).$usedState=["loopArray6","course_announcements","current","dispatch","courseId","announcementsList"],n.config={"enablePullDownRefresh":!0},n.state={"current":0},n.customComponents=["AtList","AtListItem"],_possibleConstructorReturn(n,t)}t.default=f,Component(n(1).default.createComponent(f))}},[[869,0,1]]]);
+(wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["components/education/course/course_announcements"],{
+
+/***/ "./src/components/education/course/course_announcements.jsx":
+/*!******************************************************************!*\
+  !*** ./src/components/education/course/course_announcements.jsx ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+var _dec, _class, _class2, _temp2;
+
+var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js");
+
+var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
+
+var _redux = __webpack_require__(/*! @tarojs/redux */ "./node_modules/@tarojs/redux/index.js");
+
+var _moment = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _filter = __webpack_require__(/*! ../../../utils/filter */ "./src/utils/filter.js");
+
+__webpack_require__(/*! ./course_announcements.scss */ "./src/components/education/course/course_announcements.scss");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var createMoment = function createMoment(timestamp) {
+  return (0, _moment2.default)(timestamp * 1000).utcOffset(8);
+};
+var formatTimeFromNow = function formatTimeFromNow(timestamp) {
+  var dt = createMoment(timestamp);
+  return dt.fromNow();
+};
+
+var mapStateToProps = function mapStateToProps(state, props) {
+  return {
+    announcements: state.course.mannouncementsList
+  };
+};
+
+var Announcements = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_temp2 = _class2 = function (_Taro$PureComponent) {
+  _inherits(Announcements, _Taro$PureComponent);
+
+  function Announcements() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Announcements);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Announcements.__proto__ || Object.getPrototypeOf(Announcements)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray6", "course_announcements", "current", "dispatch", "courseId", "announcements"], _this.config = {
+      enablePullDownRefresh: true
+    }, _this.state = {
+      current: 0
+    }, _this.customComponents = ["AtCard"], _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Announcements, [{
+    key: "_constructor",
+    value: function _constructor(props) {
+      _get(Announcements.prototype.__proto__ || Object.getPrototypeOf(Announcements.prototype), "_constructor", this).call(this, props);
+
+      this.$$refs = new _taroWeapp2.default.RefsArray();
+    }
+  }, {
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      this.props.dispatch({
+        type: 'course/getAnnouncementsList',
+        payload: {
+          courseId: this.props.courseId
+        }
+      });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {}
+  }, {
+    key: "componentDidShow",
+    value: function componentDidShow() {}
+  }, {
+    key: "componentDidHide",
+    value: function componentDidHide() {}
+  }, {
+    key: "_createData",
+    value: function _createData() {
+      this.__state = arguments[0] || this.state || {};
+      this.__props = arguments[1] || this.props || {};
+      var __isRunloopRef = arguments[2];
+      var __prefix = this.$prefix;
+      ;
+
+      var course_announcements = this.__props.announcements.course_announcements;
+
+      var loopArray6 = course_announcements ? course_announcements.map(function (item, index) {
+        item = {
+          $original: (0, _taroWeapp.internal_get_original)(item)
+        };
+        var $loopState__temp2 = course_announcements ? formatTimeFromNow(item.$original.update_time) : null;
+        var $loopState__temp4 = course_announcements ? (0, _filter.convertHtmlToText)(item.$original.content) : null;
+
+        var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "bjzzzzzzzz" + index, true),
+            _genCompid2 = _slicedToArray(_genCompid, 2),
+            $prevCompid__30 = _genCompid2[0],
+            $compid__30 = _genCompid2[1];
+
+        _taroWeapp.propsManager.set({
+          "extra": $loopState__temp2,
+          "title": item.$original.title
+        }, $compid__30, $prevCompid__30);
+        return {
+          $loopState__temp2: $loopState__temp2,
+          $loopState__temp4: $loopState__temp4,
+          $compid__30: $compid__30,
+          $original: item.$original
+        };
+      }) : [];
+      Object.assign(this.__state, {
+        loopArray6: loopArray6,
+        course_announcements: course_announcements
+      });
+      return this.__state;
+    }
+  }]);
+
+  return Announcements;
+}(_taroWeapp2.default.PureComponent), _class2.$$events = [], _class2.propTypes = {}, _class2.defaultProps = {
+  course_announcements: {},
+  announcementsList: {}
+}, _class2.$$componentPath = "components/education/course/course_announcements", _temp2)) || _class);
+exports.default = Announcements;
+
+Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(Announcements));
+
+/***/ }),
+
+/***/ "./src/components/education/course/course_announcements.scss":
+/*!*******************************************************************!*\
+  !*** ./src/components/education/course/course_announcements.scss ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ })
+
+},[["./src/components/education/course/course_announcements.jsx","runtime","vendors"]]]);

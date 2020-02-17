@@ -1,0 +1,26 @@
+.note-view .note-item {
+  margin-top: 10rpx;
+  padding: 30rpx;
+  display: block; }
+  .note-view .note-item .note-header .note-avatar {
+    display: flex; }
+    .note-view .note-item .note-header .note-avatar .note-title {
+      margin-top: 15rpx;
+      margin-left: 40rpx; }
+  .note-view .note-item .note-header .note-updatetime {
+    float: right;
+    height: 20rpx;
+    margin-right: 10rpx;
+    margin-top: -50rpx;
+    color: #98999c;
+    font-size: 20rpx; }
+  .note-view .note-item .note-content {
+    margin-top: 10rpx;
+    height: 80rpx;
+    line-height: 40rpx;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 25rpx; }
+

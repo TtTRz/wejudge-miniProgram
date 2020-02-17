@@ -1,1 +1,15 @@
-.welcome-view{height:100vh;justify-content:center;padding:30rpx}.welcome-view .welcome-atavater{margin:10% auto;display:flex;justify-content:center}.welcome-view .welcome-form{width:80%;margin:20% auto;justify-content:center}.welcome-view .welcome-form .welcome-button{top:100rpx}
+.welcome-view {
+  height: 100vh;
+  justify-content: center;
+  padding: 30rpx; }
+  .welcome-view .welcome-atavater {
+    margin: 10% auto;
+    display: flex;
+    justify-content: center; }
+  .welcome-view .welcome-form {
+    width: 80%;
+    margin: 20% auto;
+    justify-content: center; }
+    .welcome-view .welcome-form .welcome-button {
+      top: 100rpx; }
+

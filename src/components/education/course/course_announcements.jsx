@@ -2,8 +2,10 @@ import Taro from '@tarojs/taro'
 import { View,Picker } from '@tarojs/components'
 import {connect} from '@tarojs/redux'
 import PropTypes from 'prop-types';
-import {AtList, AtListItem} from "taro-ui";
+import {AtList, AtListItem,AtCard} from "taro-ui";
 import moment from "moment";
+import {convertHtmlToText} from '../../../utils/filter'
+import "./course_announcements.scss"
 
  const createMoment = (timestamp) => {
   return moment(timestamp * 1000).utcOffset(8);
@@ -17,7 +19,7 @@ import moment from "moment";
 
 const mapStateToProps = (state,props) => {
   return {
-    announcementsList:state.course.announcementsList,
+    announcements:state.course.mannouncementsList,
   };
 };
 
@@ -63,20 +65,22 @@ class Announcements extends Taro.PureComponent {
 
 
   render() {
-    const {course_announcements} =this.props.announcementsList.data;
+    const {course_announcements} =this.props.announcements;
     return (
-      <View className='announcements-view'>
-        <AtList>
-          {course_announcements && course_announcements.map((item,index) => {
+      <View className='announce-view'>
+        {course_announcements && course_announcements.map((item,index) => {
           return (
-            <AtListItem
-              title={item.title}
-              note={formatTimeFromNow(item.update_time)}
-              arrow='right'/>
+              <View className='announce-card'>
+              <AtCard
+                  // note=  {item.content}
+                  extra={formatTimeFromNow(item.update_time)}
+                  title={item.title}
+              >
+                {convertHtmlToText(item.content)}
+              </AtCard>
+              </View>
           )
-        })
-        }
-        </AtList>
+        })}
       </View>
     )
   }

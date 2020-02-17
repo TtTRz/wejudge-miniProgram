@@ -1,9 +1,16 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="note-view">
-        <at-list>
-            <block wx:if="{{notes}}">
-                <at-list-item wx:for="{{loopArray8}}" wx:for-item="item" wx:for-index="index" compid="{{item.$compid__38}}"></at-list-item>
-            </block>
-        </at-list>
+        <block wx:if="{{notes}}">
+            <view class="note-item" wx:for="{{loopArray8}}" wx:for-item="item" wx:for-index="index">
+                <view class="note-header">
+                    <view class="note-avatar">
+                        <at-avatar compid="{{item.$compid__37}}"></at-avatar>
+                        <view class="note-title">{{item.$original.title}}</view>
+                    </view>
+                    <view class="note-updatetime">{{item.$loopState__temp4}}</view>
+                </view>
+                <view class="note-content">{{item.$loopState__temp6}}</view>
+            </view>
+        </block>
     </view>
 </block>
