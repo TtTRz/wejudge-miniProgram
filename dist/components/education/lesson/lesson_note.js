@@ -75,7 +75,7 @@ var LessonNote = (_temp2 = _class = function (_Taro$PureComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LessonNote.__proto__ || Object.getPrototypeOf(LessonNote)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray8", "notes", "dispatch", "NoteList"], _this.config = {}, _this.state = {}, _this.BuildAvatarPath = function (id) {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LessonNote.__proto__ || Object.getPrototypeOf(LessonNote)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray8", "$compid__42", "$compid__43", "$compid__44", "notes", "dispatch", "courseId", "lessonId", "NoteList"], _this.config = {}, _this.state = {}, _this.BuildAvatarPath = function (id) {
       _this.props.dispatch({
         type: 'account/getAccount',
         payload: {
@@ -84,7 +84,15 @@ var LessonNote = (_temp2 = _class = function (_Taro$PureComponent) {
       }).then(function (res) {
         return buildResourcePath(res.data.avator);
       });
-    }, _this.customComponents = ["AtAvatar"], _temp), _possibleConstructorReturn(_this, _ret);
+    }, _this.navigateGoTo = function () {
+      _taroWeapp2.default.navigateTo({
+        url: '/pages/education/lesson/lesson_edit_asgn?cid=' + _this.props.courseId + '&lid=' + _this.props.lessonId
+      });
+    }, _this.openNote = function (id) {
+      _taroWeapp2.default.navigateTo({
+        url: '/pages/education/lesson/lesson_asgn?nid=' + id
+      });
+    }, _this.anonymousFunc0Map = {}, _this.customComponents = ["AtButton", "AtIcon"], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(LessonNote, [{
@@ -108,45 +116,79 @@ var LessonNote = (_temp2 = _class = function (_Taro$PureComponent) {
       var __prefix = this.$prefix;
       ;
 
+      var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "$compid__42"),
+          _genCompid2 = _slicedToArray(_genCompid, 2),
+          $prevCompid__42 = _genCompid2[0],
+          $compid__42 = _genCompid2[1];
+
+      var _genCompid3 = (0, _taroWeapp.genCompid)(__prefix + "$compid__43"),
+          _genCompid4 = _slicedToArray(_genCompid3, 2),
+          $prevCompid__43 = _genCompid4[0],
+          $compid__43 = _genCompid4[1];
+
+      var _genCompid5 = (0, _taroWeapp.genCompid)(__prefix + "$compid__44"),
+          _genCompid6 = _slicedToArray(_genCompid5, 2),
+          $prevCompid__44 = _genCompid6[0],
+          $compid__44 = _genCompid6[1];
+
       var notes = this.__props.NoteList;
-      var loopArray8 = notes ? notes.map(function (item, index) {
+      var loopArray8 = notes.length !== 0 ? notes.map(function (item, index) {
         item = {
           $original: (0, _taroWeapp.internal_get_original)(item)
         };
-        var $loopState__temp2 = notes ? function () {
-          return _this2.BuildAvatarPath(item.$original.student_info.id);
-        } : null;
-        var $loopState__temp4 = notes ? formatTimeFromNow(item.$original.update_time) : null;
-        var $loopState__temp6 = notes ? (0, _filter.convertHtmlToText)(item.$original.content) : null;
 
-        var _genCompid = (0, _taroWeapp.genCompid)(__prefix + 'cazzzzzzzz' + index, true),
-            _genCompid2 = _slicedToArray(_genCompid, 2),
-            $prevCompid__37 = _genCompid2[0],
-            $compid__37 = _genCompid2[1];
+        var _$indexKey = "cfzzz" + index;
 
-        _taroWeapp.propsManager.set({
-          "circle": true,
-          "size": "small",
-          "image": $loopState__temp2
-        }, $compid__37, $prevCompid__37);
+        _this2.anonymousFunc0Map[_$indexKey] = function () {
+          return _this2.openNote(item.$original.id);
+        };
+
+        var $loopState__temp2 = notes.length !== 0 ? formatTimeFromNow(item.$original.update_time) : null;
+        var $loopState__temp4 = notes.length !== 0 ? (0, _filter.convertHtmlToText)(item.$original.content) : null;
         return {
+          _$indexKey: _$indexKey,
           $loopState__temp2: $loopState__temp2,
           $loopState__temp4: $loopState__temp4,
-          $loopState__temp6: $loopState__temp6,
-          $compid__37: $compid__37,
           $original: item.$original
         };
       }) : [];
+      _taroWeapp.propsManager.set({
+        "type": "primary",
+        "size": "normal",
+        "onClick": this.navigateGoTo
+      }, $compid__42, $prevCompid__42);
+      _taroWeapp.propsManager.set({
+        "value": "edit"
+      }, $compid__43, $prevCompid__43);
+      _taroWeapp.propsManager.set({
+        "value": "edit"
+      }, $compid__44, $prevCompid__44);
       Object.assign(this.__state, {
         loopArray8: loopArray8,
+        $compid__42: $compid__42,
+        $compid__43: $compid__43,
+        $compid__44: $compid__44,
         notes: notes
       });
       return this.__state;
     }
+  }, {
+    key: 'anonymousFunc0',
+    value: function anonymousFunc0(_$indexKey) {
+      var _anonymousFunc0Map;
+
+      ;
+
+      for (var _len2 = arguments.length, e = Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        e[_key2 - 1] = arguments[_key2];
+      }
+
+      return this.anonymousFunc0Map[_$indexKey] && (_anonymousFunc0Map = this.anonymousFunc0Map)[_$indexKey].apply(_anonymousFunc0Map, e);
+    }
   }]);
 
   return LessonNote;
-}(_taroWeapp2.default.PureComponent), _class.$$events = [], _class.propTypes = {}, _class.defaultProps = {}, _class.$$componentPath = "components/education/lesson/lesson_note", _temp2);
+}(_taroWeapp2.default.PureComponent), _class.$$events = ["anonymousFunc0"], _class.propTypes = {}, _class.defaultProps = {}, _class.$$componentPath = "components/education/lesson/lesson_note", _temp2);
 exports.default = LessonNote;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(LessonNote));

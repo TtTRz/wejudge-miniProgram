@@ -1,16 +1,25 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="note-view">
-        <block wx:if="{{notes}}">
-            <view class="note-item" wx:for="{{loopArray8}}" wx:for-item="item" wx:for-index="index">
-                <view class="note-header">
-                    <view class="note-avatar">
-                        <at-avatar compid="{{item.$compid__37}}"></at-avatar>
+        <view class="note-button">
+            <at-button compid="{{$compid__42}}">
+                <at-icon compid="{{$compid__43}}"></at-icon>记笔记</at-button>
+        </view>
+        <block>
+            <block wx:if="{{notes.length !== 0}}">
+                <view class="note-item" bindtap="anonymousFunc0" wx:for="{{loopArray8}}" wx:for-item="item" wx:for-index="index" data-e-tap-so="this" data-e-tap-a-a="{{item._$indexKey}}">
+                    <view class="note-header">
                         <view class="note-title">{{item.$original.title}}</view>
+                        <view class="note-updatetime">{{item.$loopState__temp2}}</view>
                     </view>
-                    <view class="note-updatetime">{{item.$loopState__temp4}}</view>
+                    <view class="note-content">{{item.$loopState__temp4}}</view>
                 </view>
-                <view class="note-content">{{item.$loopState__temp6}}</view>
-            </view>
+            </block>
+            <block wx:else>
+                <view class="empty-content">
+                    <at-icon compid="{{$compid__44}}"></at-icon>
+                    <view class="empty-text">暂无笔记</view>
+                </view>
+            </block>
         </block>
     </view>
 </block>

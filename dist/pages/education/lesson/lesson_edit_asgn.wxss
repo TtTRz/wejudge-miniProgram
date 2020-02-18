@@ -1,0 +1,11 @@
+.note-edit-view {
+  padding: 30rpx;
+  margin: 30rpx auto;
+  width: 80%; }
+  .note-edit-view .note-edit-title {
+    margin-top: 30rpx; }
+  .note-edit-view .note-edit-textrea {
+    margin-top: 30rpx; }
+  .note-edit-view .note-edit-button {
+    margin-top: 100rpx; }
+

@@ -1,5 +1,5 @@
 <block wx:if="{{$taroCompReady}}">
-    <view class="home-view" style="height:100%">
+    <view class="home-view">
         <view class="home-content">
             <block wx:if="{{currentTab === 0}}">
                 <view class="home-view"></view>

@@ -1,12 +1,12 @@
 .courseList-view {
   padding: 5%;
   min-height: 100%;
-  margin-bottom: 130rpx; }
+  margin-bottom: 130rpx;
+  background: #e8e9ea; }
   .courseList-view .courseList-row .courseList-item {
     padding: 30rpx;
     margin-top: 30rpx;
     display: flex;
-    height: 160rpx;
     width: 90%;
     background: white; }
     .courseList-view .courseList-row .courseList-item .courseList-image {
@@ -16,6 +16,12 @@
       padding: 22rpx;
       margin-left: 20rpx; }
       .courseList-view .courseList-row .courseList-item .courseList-content .courseList-description {
-        font-size: 25rpx;
-        color: #98999c; }
+        color: #98999c;
+        height: 80rpx;
+        line-height: 40rpx;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-size: 25rpx; }
 

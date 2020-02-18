@@ -1,21 +1,16 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="lesson-view">
-        <block>
-            <block wx:if="{{videos}}">
-                <view class="lesson-video">
-                    <video-player compid="{{$compid__31}}"></video-player>
-                </view>
-            </block>
-            <block wx:else>
-                <view>本课堂暂无视频</view>
-            </block>
+        <block wx:if="{{videos}}">
+            <view class="lesson-video">
+                <video-player compid="{{$compid__34}}"></video-player>
+            </view>
         </block>
-        <at-tabs compid="{{$compid__32}}">
-            <at-tabs-pane compid="{{$compid__33}}">
-                <home-work compid="{{$compid__34}}"></home-work>
+        <at-tabs compid="{{$compid__35}}">
+            <at-tabs-pane compid="{{$compid__36}}">
+                <home-work compid="{{$compid__37}}"></home-work>
             </at-tabs-pane>
-            <at-tabs-pane compid="{{$compid__35}}">
-                <note compid="{{$compid__36}}"></note>
+            <at-tabs-pane compid="{{$compid__38}}">
+                <note compid="{{$compid__39}}"></note>
             </at-tabs-pane>
         </at-tabs>
     </view>

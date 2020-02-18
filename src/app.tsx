@@ -42,6 +42,8 @@ class App extends Component {
       'pages/home/home_view',
       'pages/education/course/course_view',
       'pages/education/lesson/lesson_view',
+      'pages/education/lesson/lesson_edit_asgn',
+      'pages/education/lesson/lesson_asgn',
     ],
     window: {
       backgroundTextStyle: 'light',

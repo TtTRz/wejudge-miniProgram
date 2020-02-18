@@ -3,7 +3,7 @@
         <view class="list-item" wx:for="{{loopArray3}}" wx:for-item="item" wx:for-index="index">
             <at-accordion compid="{{item.$compid__24}}">
                 <at-list compid="{{item.$compid__25}}">
-                    <block wx:if="{{item.$loopState__temp7}}">
+                    <block wx:if="{{item.$loopState__temp19}}">
                         <template is="renderSecondList" data="{{...item.$loopState__temp2}}"></template>
                     </block>
                 </at-list>
@@ -15,17 +15,26 @@
     <block>
         <view class="second-content" wx:for="{{loopArray4}}" wx:for-item="item" wx:for-index="ix">
             <block>
-                <block wx:if="{{item.$loopState__temp9}}">
+                <block wx:if="{{item.$loopState__temp21}}">
                     <view>
                         <at-accordion compid="{{item.$compid__26}}">
                             <at-list compid="{{item.$compid__27}}">
-                                <template is="renderThirdList" data="{{...item.$loopState__temp4}}"></template>
+                                <template is="renderThirdList" data="{{...item.$loopState__temp6}}"></template>
                             </at-list>
                         </at-accordion>
                     </view>
                 </block>
                 <block wx:else>
-                    <at-list-item compid="{{item.$compid__28}}"></at-list-item>
+                    <view>
+                        <block>
+                            <block wx:if="{{item.$original.video}}">
+                                <at-list-item compid="{{item.$compid__28}}"></at-list-item>
+                            </block>
+                            <block wx:else>
+                                <at-list-item compid="{{item.$compid__29}}"></at-list-item>
+                            </block>
+                        </block>
+                    </view>
                 </block>
             </block>
         </view>
@@ -34,12 +43,19 @@
 <template name="renderThirdList">
     <block>
         <view class="third-content" wx:for="{{loopArray5}}" wx:for-item="item" wx:for-index="i">
-            <at-list-item compid="{{item.$compid__29}}"></at-list-item>
+            <block>
+                <block wx:if="{{item.$original.video}}">
+                    <at-list-item compid="{{item.$compid__30}}"></at-list-item>
+                </block>
+                <block wx:else>
+                    <at-list-item compid="{{item.$compid__31}}"></at-list-item>
+                </block>
+            </block>
         </view>
     </block>
 </template>
 <block wx:if="{{$taroCompReady}}">
     <view class="lesson-view">
-        <template is="renderList" data="{{...anonymousState__temp5}}"></template>
+        <template is="renderList" data="{{...anonymousState__temp17}}"></template>
     </view>
 </block>

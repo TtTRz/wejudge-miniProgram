@@ -157,7 +157,7 @@ class CourseView extends Taro.PureComponent {
       <View className="course-view">
         <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
           <AtTabsPane current={this.state.current} index={0}  style='height:100%'>
-            <View style='background-color: #e8e9ea;height:100%' >
+            <View >
 
               <Picker mode='selector' range={this.state.selector} onChange={this.onChange}>
                 <View className='picker' style='float:right ;font-size: 10px; color:#98999c;margin:3px'>

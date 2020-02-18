@@ -1,3 +1,19 @@
 .announce-view .announce-card {
   margin-top: 50rpx; }
 
+.announce-view .empty-content {
+  margin-top: 40%;
+  text-align: center;
+  color: #98999c;
+  font-size: 25rpx; }
+  .announce-view .empty-content .empty-text {
+    margin-top: 40rpx; }
+
+.empty-content {
+  margin-top: 40%;
+  text-align: center;
+  color: #98999c;
+  font-size: 25rpx; }
+  .empty-content .empty-text {
+    margin-top: 40rpx; }
+

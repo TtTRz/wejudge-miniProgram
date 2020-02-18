@@ -1,9 +1,17 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="announce-view">
-        <block wx:if="{{course_announcements}}">
-            <view class="announce-card" wx:for="{{loopArray6}}" wx:for-item="item" wx:for-index="index">
-                <at-card compid="{{item.$compid__30}}">{{item.$loopState__temp4}}</at-card>
-            </view>
+        <block>
+            <block wx:if="{{course_announcements.length !== 0}}">
+                <view class="announce-card" wx:for="{{loopArray6}}" wx:for-item="item" wx:for-index="index">
+                    <at-card compid="{{item.$compid__32}}">{{item.$loopState__temp4}}</at-card>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="empty-content">
+                    <at-icon compid="{{$compid__33}}"></at-icon>
+                    <view class="empty-text">暂无公告</view>
+                </view>
+            </block>
         </block>
     </view>
 </block>

@@ -30,6 +30,8 @@ var _redux = __webpack_require__(/*! @tarojs/redux */ "./node_modules/@tarojs/re
 
 var _lodashEs = __webpack_require__(/*! lodash-es */ "./node_modules/lodash-es/lodash.js");
 
+__webpack_require__(/*! ./course_lesson.scss */ "./src/components/education/course/course_lesson.scss");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -58,14 +60,14 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CourseView.__proto__ || Object.getPrototypeOf(CourseView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp5", "current", "open", "dispatch", "courseId", "lesson"], _this.config = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CourseView.__proto__ || Object.getPrototypeOf(CourseView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp17", "current", "open", "dispatch", "courseId", "lesson"], _this.config = {
       enablePullDownRefresh: true,
       navigationBarTitleText: ''
 
     }, _this.state = {
       current: 0,
       open: true
-    }, _this.anonymousFunc0Map = {}, _this.anonymousFunc1Map = {}, _this.customComponents = ["AtAccordion", "AtList", "AtListItem"], _temp), _possibleConstructorReturn(_this, _ret);
+    }, _this.anonymousFunc0Map = {}, _this.anonymousFunc1Map = {}, _this.anonymousFunc2Map = {}, _this.anonymousFunc3Map = {}, _this.customComponents = ["AtAccordion", "AtList", "AtListItem"], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(CourseView, [{
@@ -86,19 +88,21 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       });
     }
   }, {
-    key: 'componentWillUnmount',
-    value: function componentWillUnmount() {}
-  }, {
-    key: 'componentDidShow',
-    value: function componentDidShow() {}
+    key: 'handleClick',
+    value: function handleClick(value) {
+      this.setState({
+        open: value
+      });
+    }
   }, {
     key: 'componentDidHide',
     value: function componentDidHide() {}
   }, {
     key: 'handleLessonClick',
-    value: function handleLessonClick(id) {
+    value: function handleLessonClick(item) {
+      console.log("item", item);
       _taroWeapp2.default.navigateTo({
-        url: "/pages/education/lesson/lesson_view?cid=" + this.props.courseId + '&lid=' + id
+        url: "/pages/education/lesson/lesson_view?cid=" + this.props.courseId + '&lid=' + item.id
       });
     }
   }, {
@@ -111,20 +115,26 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
           item = {
             $original: (0, _taroWeapp.internal_get_original)(item)
           };
-          var $loopState__temp2 = (0, _lodashEs.get)(item.$original, 'children', []).length !== 0 ? _this2._createSecondListData(_$uid + "izzzzzzzzz" + ('' + index))(item.$original.children, index) : null;
-          var $loopState__temp7 = (0, _lodashEs.get)(item.$original, 'children', []).length !== 0;
 
-          var _genCompid = (0, _taroWeapp.genCompid)(_$uid + 'bdzzzzzzzz' + index, true),
+          var open = _this2.state.open;
+
+          var $loopState__temp2 = (0, _lodashEs.get)(item.$original, 'children', []).length !== 0 ? _this2._createSecondListData(_$uid + "izzzzzzzzz" + ('' + index))(item.$original.children, index) : null;
+          var $loopState__temp4 = { value: 'folder', size: '15' };
+          var $loopState__temp19 = (0, _lodashEs.get)(item.$original, 'children', []).length !== 0;
+
+          var _genCompid = (0, _taroWeapp.genCompid)(_$uid + 'bfzzzzzzzz' + index, true),
               _genCompid2 = _slicedToArray(_genCompid, 2),
               $prevCompid__24 = _genCompid2[0],
               $compid__24 = _genCompid2[1];
 
           _taroWeapp.propsManager.set({
-            "open": "true",
-            "title": item.$original.title
+            "open": open,
+            "onClick": _this2.handleClick.bind(_this2),
+            "title": item.$original.title,
+            "icon": $loopState__temp4
           }, $compid__24, $prevCompid__24);
 
-          var _genCompid3 = (0, _taroWeapp.genCompid)(_$uid + 'bezzzzzzzz' + index, true),
+          var _genCompid3 = (0, _taroWeapp.genCompid)(_$uid + 'bgzzzzzzzz' + index, true),
               _genCompid4 = _slicedToArray(_genCompid3, 2),
               $prevCompid__25 = _genCompid4[0],
               $compid__25 = _genCompid4[1];
@@ -134,7 +144,8 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
           }, $compid__25, $prevCompid__25);
           return {
             $loopState__temp2: $loopState__temp2,
-            $loopState__temp7: $loopState__temp7,
+            $loopState__temp4: $loopState__temp4,
+            $loopState__temp19: $loopState__temp19,
             $compid__24: $compid__24,
             $compid__25: $compid__25,
             $original: item.$original
@@ -156,51 +167,83 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
           item = {
             $original: (0, _taroWeapp.internal_get_original)(item)
           };
-          var $loopState__temp4 = item.$original.is_group && (0, _lodashEs.get)(item.$original, 'children', []).length !== 0 ? _this3._createThirdListData(_$uid + "jzzzzzzzzz" + ('' + ix))(item.$original.children, index, ix) : null;
+
+          var open = _this3.state.open;
+
+          var $loopState__temp6 = item.$original.is_group && (0, _lodashEs.get)(item.$original, 'children', []).length !== 0 ? _this3._createThirdListData(_$uid + "jzzzzzzzzz" + ('' + ix))(item.$original.children, index, ix) : null;
+          var $loopState__temp8 = item.$original.is_group && (0, _lodashEs.get)(item.$original, 'children', []).length !== 0 ? { value: 'folder', size: '15' } : null;
+          var $loopState__temp10 = item.$original.video ? { size: 15, value: 'video' } : null;
 
           var _$indexKey = "bazzz" + ix;
 
           _this3.anonymousFunc0Map[_$indexKey] = function () {
-            return _this3.handleLessonClick(item.$original.id);
+            return _this3.handleLessonClick(item.$original);
           };
 
-          var $loopState__temp9 = item.$original.is_group && (0, _lodashEs.get)(item.$original, 'children', []).length !== 0;
+          var $loopState__temp12 = { size: 15, value: 'file-generic' };
 
-          var _genCompid5 = (0, _taroWeapp.genCompid)(_$uid + 'bfzzzzzzzz' + ix, true),
+          var _$indexKey2 = "bbzzz" + ix;
+
+          _this3.anonymousFunc1Map[_$indexKey2] = function () {
+            return _this3.handleLessonClick(item.$original);
+          };
+
+          var $loopState__temp21 = item.$original.is_group && (0, _lodashEs.get)(item.$original, 'children', []).length !== 0;
+
+          var _genCompid5 = (0, _taroWeapp.genCompid)(_$uid + 'bhzzzzzzzz' + ix, true),
               _genCompid6 = _slicedToArray(_genCompid5, 2),
               $prevCompid__26 = _genCompid6[0],
               $compid__26 = _genCompid6[1];
 
-          $loopState__temp9 && _taroWeapp.propsManager.set({
-            "open": "true",
-            "title": item.$original.title
+          $loopState__temp21 && _taroWeapp.propsManager.set({
+            "open": open,
+            "onClick": _this3.handleClick.bind(_this3),
+            "title": item.$original.title,
+            "icon": $loopState__temp8
           }, $compid__26, $prevCompid__26);
 
-          var _genCompid7 = (0, _taroWeapp.genCompid)(_$uid + 'bgzzzzzzzz' + ix, true),
+          var _genCompid7 = (0, _taroWeapp.genCompid)(_$uid + 'bizzzzzzzz' + ix, true),
               _genCompid8 = _slicedToArray(_genCompid7, 2),
               $prevCompid__27 = _genCompid8[0],
               $compid__27 = _genCompid8[1];
 
-          $loopState__temp9 && _taroWeapp.propsManager.set({
+          $loopState__temp21 && _taroWeapp.propsManager.set({
             "hasBorder": false
           }, $compid__27, $prevCompid__27);
 
-          var _genCompid9 = (0, _taroWeapp.genCompid)(_$uid + 'bhzzzzzzzz' + ix, true),
+          var _genCompid9 = (0, _taroWeapp.genCompid)(_$uid + 'bjzzzzzzzz' + ix, true),
               _genCompid10 = _slicedToArray(_genCompid9, 2),
               $prevCompid__28 = _genCompid10[0],
               $compid__28 = _genCompid10[1];
 
-          !$loopState__temp9 && _taroWeapp.propsManager.set({
-            "note": item.$original.title,
+          !$loopState__temp21 && item.$original.video && _taroWeapp.propsManager.set({
+            "title": item.$original.title,
+            "iconInfo": $loopState__temp10,
             "onClick": _this3.anonymousFunc0.bind(_this3, _$indexKey)
           }, $compid__28, $prevCompid__28);
+
+          var _genCompid11 = (0, _taroWeapp.genCompid)(_$uid + 'cazzzzzzzz' + ix, true),
+              _genCompid12 = _slicedToArray(_genCompid11, 2),
+              $prevCompid__29 = _genCompid12[0],
+              $compid__29 = _genCompid12[1];
+
+          !$loopState__temp21 && !item.$original.video && _taroWeapp.propsManager.set({
+            "title": item.$original.title,
+            "iconInfo": $loopState__temp12,
+            "onClick": _this3.anonymousFunc1.bind(_this3, _$indexKey2)
+          }, $compid__29, $prevCompid__29);
           return {
-            $loopState__temp4: $loopState__temp4,
+            $loopState__temp6: $loopState__temp6,
+            $loopState__temp8: $loopState__temp8,
+            $loopState__temp10: $loopState__temp10,
             _$indexKey: _$indexKey,
-            $loopState__temp9: $loopState__temp9,
+            $loopState__temp12: $loopState__temp12,
+            _$indexKey2: _$indexKey2,
+            $loopState__temp21: $loopState__temp21,
             $compid__26: $compid__26,
             $compid__27: $compid__27,
             $compid__28: $compid__28,
+            $compid__29: $compid__29,
             $original: item.$original
           };
         });
@@ -220,25 +263,50 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
           item = {
             $original: (0, _taroWeapp.internal_get_original)(item)
           };
+          var $loopState__temp14 = item.$original.video ? { size: 15, value: 'video' } : null;
 
-          var _$indexKey2 = "bbzzz" + i;
+          var _$indexKey3 = "bczzz" + i;
 
-          _this4.anonymousFunc1Map[_$indexKey2] = function () {
-            return _this4.handleLessonClick(item.$original.id);
+          _this4.anonymousFunc2Map[_$indexKey3] = function () {
+            return _this4.handleLessonClick(item.$original);
           };
 
-          var _genCompid11 = (0, _taroWeapp.genCompid)(_$uid + 'bizzzzzzzz' + i, true),
-              _genCompid12 = _slicedToArray(_genCompid11, 2),
-              $prevCompid__29 = _genCompid12[0],
-              $compid__29 = _genCompid12[1];
+          var $loopState__temp16 = { size: 15, value: 'file-generic' };
 
-          _taroWeapp.propsManager.set({
-            "note": item.$original.title,
-            "onClick": _this4.anonymousFunc1.bind(_this4, _$indexKey2)
-          }, $compid__29, $prevCompid__29);
+          var _$indexKey4 = "bdzzz" + i;
+
+          _this4.anonymousFunc3Map[_$indexKey4] = function () {
+            return _this4.handleLessonClick(item.$original);
+          };
+
+          var _genCompid13 = (0, _taroWeapp.genCompid)(_$uid + 'cbzzzzzzzz' + i, true),
+              _genCompid14 = _slicedToArray(_genCompid13, 2),
+              $prevCompid__30 = _genCompid14[0],
+              $compid__30 = _genCompid14[1];
+
+          item.$original.video && _taroWeapp.propsManager.set({
+            "title": item.$original.title,
+            "iconInfo": $loopState__temp14,
+            "onClick": _this4.anonymousFunc2.bind(_this4, _$indexKey3)
+          }, $compid__30, $prevCompid__30);
+
+          var _genCompid15 = (0, _taroWeapp.genCompid)(_$uid + 'cczzzzzzzz' + i, true),
+              _genCompid16 = _slicedToArray(_genCompid15, 2),
+              $prevCompid__31 = _genCompid16[0],
+              $compid__31 = _genCompid16[1];
+
+          !item.$original.video && _taroWeapp.propsManager.set({
+            "title": item.$original.title,
+            "iconInfo": $loopState__temp16,
+            "onClick": _this4.anonymousFunc3.bind(_this4, _$indexKey4)
+          }, $compid__31, $prevCompid__31);
           return {
-            _$indexKey2: _$indexKey2,
-            $compid__29: $compid__29,
+            $loopState__temp14: $loopState__temp14,
+            _$indexKey3: _$indexKey3,
+            $loopState__temp16: $loopState__temp16,
+            _$indexKey4: _$indexKey4,
+            $compid__30: $compid__30,
+            $compid__31: $compid__31,
             $original: item.$original
           };
         });
@@ -260,10 +328,10 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       var data = this.__props.lesson.data;
 
 
-      var anonymousState__temp5 = this._createListData(__prefix + "bczzzzzzzz")(data);
+      var anonymousState__temp17 = this._createListData(__prefix + "bezzzzzzzz")(data);
 
       Object.assign(this.__state, {
-        anonymousState__temp5: anonymousState__temp5
+        anonymousState__temp17: anonymousState__temp17
       });
       return this.__state;
     }
@@ -293,6 +361,32 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
 
       return this.anonymousFunc1Map[_$indexKey2] && (_anonymousFunc1Map = this.anonymousFunc1Map)[_$indexKey2].apply(_anonymousFunc1Map, e);
     }
+  }, {
+    key: 'anonymousFunc2',
+    value: function anonymousFunc2(_$indexKey3) {
+      var _anonymousFunc2Map;
+
+      ;
+
+      for (var _len4 = arguments.length, e = Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+        e[_key4 - 1] = arguments[_key4];
+      }
+
+      return this.anonymousFunc2Map[_$indexKey3] && (_anonymousFunc2Map = this.anonymousFunc2Map)[_$indexKey3].apply(_anonymousFunc2Map, e);
+    }
+  }, {
+    key: 'anonymousFunc3',
+    value: function anonymousFunc3(_$indexKey4) {
+      var _anonymousFunc3Map;
+
+      ;
+
+      for (var _len5 = arguments.length, e = Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
+        e[_key5 - 1] = arguments[_key5];
+      }
+
+      return this.anonymousFunc3Map[_$indexKey4] && (_anonymousFunc3Map = this.anonymousFunc3Map)[_$indexKey4].apply(_anonymousFunc3Map, e);
+    }
   }]);
 
   return CourseView;
@@ -302,6 +396,17 @@ var CourseView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
 exports.default = CourseView;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(CourseView));
+
+/***/ }),
+
+/***/ "./src/components/education/course/course_lesson.scss":
+/*!************************************************************!*\
+  !*** ./src/components/education/course/course_lesson.scss ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
 
 /***/ })
 

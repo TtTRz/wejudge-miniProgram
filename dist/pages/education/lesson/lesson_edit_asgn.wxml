@@ -1,0 +1,15 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="note-edit-view">
+        <at-form compid="{{$compid__45}}">
+            <view class="note-edit-title">
+                <at-input compid="{{$compid__46}}"></at-input>
+            </view>
+            <view class="note-edit-textrea">
+                <at-textarea compid="{{$compid__47}}"></at-textarea>
+            </view>
+            <view class="note-edit-button">
+                <at-button compid="{{$compid__48}}">发表</at-button>
+            </view>
+        </at-form>
+    </view>
+</block>

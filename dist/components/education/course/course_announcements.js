@@ -36,6 +36,8 @@ var _filter = __webpack_require__(/*! ../../../utils/filter */ "./src/utils/filt
 
 __webpack_require__(/*! ./course_announcements.scss */ "./src/components/education/course/course_announcements.scss");
 
+__webpack_require__(/*! ../../../style/empty.scss */ "./src/style/empty.scss");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -72,11 +74,11 @@ var Announcements = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = 
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Announcements.__proto__ || Object.getPrototypeOf(Announcements)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray6", "course_announcements", "current", "dispatch", "courseId", "announcements"], _this.config = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Announcements.__proto__ || Object.getPrototypeOf(Announcements)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["loopArray6", "$compid__33", "course_announcements", "current", "dispatch", "courseId", "announcements"], _this.config = {
       enablePullDownRefresh: true
     }, _this.state = {
       current: 0
-    }, _this.customComponents = ["AtCard"], _temp), _possibleConstructorReturn(_this, _ret);
+    }, _this.customComponents = ["AtCard", "AtIcon"], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Announcements, [{
@@ -114,33 +116,43 @@ var Announcements = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = 
       var __prefix = this.$prefix;
       ;
 
+      var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "$compid__33"),
+          _genCompid2 = _slicedToArray(_genCompid, 2),
+          $prevCompid__33 = _genCompid2[0],
+          $compid__33 = _genCompid2[1];
+
       var course_announcements = this.__props.announcements.course_announcements;
 
-      var loopArray6 = course_announcements ? course_announcements.map(function (item, index) {
+      var loopArray6 = course_announcements.length !== 0 ? course_announcements.map(function (item, index) {
         item = {
           $original: (0, _taroWeapp.internal_get_original)(item)
         };
-        var $loopState__temp2 = course_announcements ? formatTimeFromNow(item.$original.update_time) : null;
-        var $loopState__temp4 = course_announcements ? (0, _filter.convertHtmlToText)(item.$original.content) : null;
+        var $loopState__temp2 = course_announcements.length !== 0 ? formatTimeFromNow(item.$original.update_time) : null;
+        var $loopState__temp4 = course_announcements.length !== 0 ? (0, _filter.convertHtmlToText)(item.$original.content) : null;
 
-        var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "bjzzzzzzzz" + index, true),
-            _genCompid2 = _slicedToArray(_genCompid, 2),
-            $prevCompid__30 = _genCompid2[0],
-            $compid__30 = _genCompid2[1];
+        var _genCompid3 = (0, _taroWeapp.genCompid)(__prefix + "cdzzzzzzzz" + index, true),
+            _genCompid4 = _slicedToArray(_genCompid3, 2),
+            $prevCompid__32 = _genCompid4[0],
+            $compid__32 = _genCompid4[1];
 
         _taroWeapp.propsManager.set({
           "extra": $loopState__temp2,
           "title": item.$original.title
-        }, $compid__30, $prevCompid__30);
+        }, $compid__32, $prevCompid__32);
         return {
           $loopState__temp2: $loopState__temp2,
           $loopState__temp4: $loopState__temp4,
-          $compid__30: $compid__30,
+          $compid__32: $compid__32,
           $original: item.$original
         };
       }) : [];
+      _taroWeapp.propsManager.set({
+        "value": "message",
+        "size": "40"
+      }, $compid__33, $prevCompid__33);
       Object.assign(this.__state, {
         loopArray6: loopArray6,
+        $compid__33: $compid__33,
         course_announcements: course_announcements
       });
       return this.__state;
@@ -162,6 +174,17 @@ Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/
 /*!*******************************************************************!*\
   !*** ./src/components/education/course/course_announcements.scss ***!
   \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
+/***/ "./src/style/empty.scss":
+/*!******************************!*\
+  !*** ./src/style/empty.scss ***!
+  \******************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

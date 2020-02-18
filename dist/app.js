@@ -76,7 +76,7 @@ var _App = function (_BaseComponent) {
     var _this = _possibleConstructorReturn(this, (_App.__proto__ || Object.getPrototypeOf(_App)).apply(this, arguments));
 
     _this.config = {
-      pages: ['pages/welcome/welcome_view', 'pages/welcome/loading', 'pages/home/home_view', 'pages/education/course/course_view', 'pages/education/lesson/lesson_view'],
+      pages: ['pages/welcome/welcome_view', 'pages/welcome/loading', 'pages/home/home_view', 'pages/education/course/course_view', 'pages/education/lesson/lesson_view', 'pages/education/lesson/lesson_edit_asgn', 'pages/education/lesson/lesson_asgn'],
       window: {
         backgroundTextStyle: 'light',
         navigationBarBackgroundColor: '#fff',
@@ -180,7 +180,9 @@ var API = exports.API = {
       VIDEOS: '/education/courses/:cid/lessons/:lid/videos',
       ASGNLIST: '/education/courses/:cid/asgns/_mget',
       NOTEList: '/education/notes/list',
-      NOTE: '/education/notes/_mget'
+      NOTE: '/education/notes/_mget',
+      EDITNOTE: '/education/notes',
+      NOTEMESSAGE: '/education/notes/:nid'
     }
   },
   SCHOOL: {
@@ -930,27 +932,24 @@ exports.default = {
         }
       }, getNote, this);
     }),
-    getAsgnList: /*#__PURE__*/_regenerator2.default.mark(function getAsgnList(_ref9, _ref10) {
+    editNote: /*#__PURE__*/_regenerator2.default.mark(function editNote(_ref9, _ref10) {
       var payload = _ref9.payload;
       var call = _ref10.call,
           put = _ref10.put,
           select = _ref10.select;
       var req;
-      return _regenerator2.default.wrap(function getAsgnList$(_context5) {
+      return _regenerator2.default.wrap(function editNote$(_context5) {
         while (1) {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return call(lesson.getAsgnList, payload);
+              return call(lesson.editNote, payload);
 
             case 2:
               req = _context5.sent;
               _context5.next = 5;
               return put({
-                type: 'save',
-                payload: {
-                  asgn: req.data
-                }
+                type: 'save'
               });
 
             case 5:
@@ -961,13 +960,79 @@ exports.default = {
               return _context5.stop();
           }
         }
+      }, editNote, this);
+    }),
+    getNoteMessage: /*#__PURE__*/_regenerator2.default.mark(function getNoteMessage(_ref11, _ref12) {
+      var payload = _ref11.payload;
+      var call = _ref12.call,
+          put = _ref12.put,
+          select = _ref12.select;
+      var req;
+      return _regenerator2.default.wrap(function getNoteMessage$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.next = 2;
+              return call(lesson.getNoteMessage, payload);
+
+            case 2:
+              req = _context6.sent;
+              _context6.next = 5;
+              return put({
+                type: 'save',
+                payload: {
+                  message: req.data
+                }
+              });
+
+            case 5:
+              return _context6.abrupt('return', req.data);
+
+            case 6:
+            case 'end':
+              return _context6.stop();
+          }
+        }
+      }, getNoteMessage, this);
+    }),
+    getAsgnList: /*#__PURE__*/_regenerator2.default.mark(function getAsgnList(_ref13, _ref14) {
+      var payload = _ref13.payload;
+      var call = _ref14.call,
+          put = _ref14.put,
+          select = _ref14.select;
+      var req;
+      return _regenerator2.default.wrap(function getAsgnList$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.next = 2;
+              return call(lesson.getAsgnList, payload);
+
+            case 2:
+              req = _context7.sent;
+              _context7.next = 5;
+              return put({
+                type: 'save',
+                payload: {
+                  asgn: req.data
+                }
+              });
+
+            case 5:
+              return _context7.abrupt('return', req.data);
+
+            case 6:
+            case 'end':
+              return _context7.stop();
+          }
+        }
       }, getAsgnList, this);
     })
   },
 
   reducers: {
-    save: function save(state, _ref11) {
-      var payload = _ref11.payload;
+    save: function save(state, _ref15) {
+      var payload = _ref15.payload;
 
       return _extends({}, state, payload);
     }
@@ -1122,10 +1187,14 @@ var login = exports.login = function login(payload) {
     url: _apis.API.ACCOUNT.LOGIN,
     method: 'post',
     data: {
-      username: "xj@a.com",
-      password: "12345678"
+      // username: "xj@a.com",
+      // password: "12345678",
       // username: payload.username,
       // password: payload.password,
+      // username:'1901014002@wejudge.net',
+      // password:'12345678',
+      username: 'xjfn26@gmail.com',
+      password: 'xj0808@1222'
     }
   });
 };
@@ -1279,7 +1348,7 @@ var getDiscusses = exports.getDiscusses = function getDiscusses(payload) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.getAsgnList = exports.getNote = exports.getNoteList = exports.getVideos = exports.getLesson = undefined;
+exports.getAsgnList = exports.getNoteMessage = exports.editNote = exports.getNote = exports.getNoteList = exports.getVideos = exports.getLesson = undefined;
 
 var _request = __webpack_require__(/*! ../../utils/request */ "./src/utils/request.js");
 
@@ -1331,6 +1400,33 @@ var getNote = exports.getNote = function getNote(payload) {
     method: 'post',
     data: {
       ids: payload.ids
+    }
+  });
+};
+//编辑笔记详细信息
+var editNote = exports.editNote = function editNote(payload) {
+  return (0, _request2.default)({
+    url: _apis.API.COURSE.LESSON.EDITNOTE,
+    method: 'post',
+    data: {
+      title: payload.title,
+      content: payload.content
+    },
+    params: {
+      course_id: payload.course_id,
+      lesson_id: payload.lesson_id
+    }
+  });
+};
+//获取笔记详细信息
+var getNoteMessage = exports.getNoteMessage = function getNoteMessage(payload) {
+  var pattern = (0, _pathToRegexp.compile)(_apis.API.COURSE.LESSON.NOTEMESSAGE);
+  return (0, _request2.default)({
+    url: pattern({ nid: payload.noteId }),
+    method: 'get',
+    data: {
+      title: payload.title,
+      content: payload.content
     }
   });
 };

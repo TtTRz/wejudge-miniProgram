@@ -1,0 +1,5 @@
+.course-view {
+  height: 100%;
+  position: absolute;
+  background: #e8e9ea; }
+

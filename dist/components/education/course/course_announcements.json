@@ -1,1 +1,1 @@
-{"component":true,"usingComponents":{"at-card":"../../../npm/taro-ui/dist/weapp/components/card/index"},"enablePullDownRefresh":true}
+{"component":true,"usingComponents":{"at-card":"../../../npm/taro-ui/dist/weapp/components/card/index","at-icon":"../../../npm/taro-ui/dist/weapp/components/icon/index"},"enablePullDownRefresh":true}

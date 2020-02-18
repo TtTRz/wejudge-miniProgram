@@ -1,1 +1,1 @@
-{"component":true,"usingComponents":{"at-list":"../../../npm/taro-ui/dist/weapp/components/list/index"}}
+{"component":true,"usingComponents":{"at-list":"../../../npm/taro-ui/dist/weapp/components/list/index","at-list-item":"../../../npm/taro-ui/dist/weapp/components/list/item/index","at-icon":"../../../npm/taro-ui/dist/weapp/components/icon/index"}}

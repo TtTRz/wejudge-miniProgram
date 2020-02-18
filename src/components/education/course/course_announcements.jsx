@@ -2,10 +2,11 @@ import Taro from '@tarojs/taro'
 import { View,Picker } from '@tarojs/components'
 import {connect} from '@tarojs/redux'
 import PropTypes from 'prop-types';
-import {AtList, AtListItem,AtCard} from "taro-ui";
+import {AtList, AtIcon,AtCard} from "taro-ui";
 import moment from "moment";
 import {convertHtmlToText} from '../../../utils/filter'
 import "./course_announcements.scss"
+import '../../../style/empty.scss'
 
  const createMoment = (timestamp) => {
   return moment(timestamp * 1000).utcOffset(8);
@@ -68,7 +69,7 @@ class Announcements extends Taro.PureComponent {
     const {course_announcements} =this.props.announcements;
     return (
       <View className='announce-view'>
-        {course_announcements && course_announcements.map((item,index) => {
+        {course_announcements.length!== 0 ? course_announcements.map((item,index) => {
           return (
               <View className='announce-card'>
               <AtCard
@@ -80,7 +81,12 @@ class Announcements extends Taro.PureComponent {
               </AtCard>
               </View>
           )
-        })}
+        }):
+        <View className='empty-content'>
+          <AtIcon value='message' size='40'/>
+          <View className='empty-text'>暂无公告</View>
+        </View>
+        }
       </View>
     )
   }

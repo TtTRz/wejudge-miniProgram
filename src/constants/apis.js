@@ -22,6 +22,8 @@ export const API = {
             ASGNLIST:'/education/courses/:cid/asgns/_mget',
             NOTEList:'/education/notes/list',
             NOTE:'/education/notes/_mget',
+            EDITNOTE:'/education/notes',
+            NOTEMESSAGE:'/education/notes/:nid',
         }
     },
     SCHOOL:{

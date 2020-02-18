@@ -59,7 +59,7 @@ export  default {
         payload:{
           ids:req.data.notes.map((item) => item.id),
         }
-      })
+      });
       return req.data;
     },
     * getNote({payload}, {call, put, select}) {
@@ -70,6 +70,23 @@ export  default {
           note: req.data,
         }
       });
+    },
+    * editNote({payload}, {call, put, select}) {
+      const req = yield call(lesson.editNote, payload);
+      yield put({
+        type: 'save',
+      });
+      return req.data;
+    },
+    * getNoteMessage({payload}, {call, put, select}) {
+      const req = yield call(lesson.getNoteMessage, payload);
+      yield put({
+        type: 'save',
+        payload:{
+          message:req.data
+        }
+      });
+      return req.data;
     },
 
     * getAsgnList({payload}, {call, put, select}) {

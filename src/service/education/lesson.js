@@ -45,6 +45,35 @@ export const getNote = (payload) =>{
         }
     })
 };
+//编辑笔记详细信息
+export const editNote = (payload) =>{
+    return Request({
+        url:API.COURSE.LESSON.EDITNOTE,
+        method: 'post',
+        data:{
+            title:payload.title,
+            content:payload.content,
+        },
+        params:{
+            course_id:payload.course_id,
+            lesson_id:payload.lesson_id,
+        }
+    })
+};
+//获取笔记详细信息
+export const getNoteMessage = (payload) =>{
+    const pattern = compile(API.COURSE.LESSON.NOTEMESSAGE);
+    return Request({
+        url:pattern({nid:payload.noteId}),
+        method: 'get',
+        data:{
+            title:payload.title,
+            content:payload.content,
+        },
+    })
+};
+
+
 
 //获取课堂作业
 export const getAsgnList = (payload) =>{

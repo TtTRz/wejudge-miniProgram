@@ -74,12 +74,12 @@ class LessonView extends Taro.PureComponent {
     const tabList = [ { title: '作业' },{ title: '笔记'} ];
     return (
       <View className="lesson-view">
-        {this.props.videos ?  <View className="lesson-video">
+        {this.props.videos && <View className="lesson-video">
           <VideoPlayer
             lessonVideo={this.props.videos}
             lessonId={this.$router.params.lid}
           />
-        </View> : <View>本课堂暂无视频</View>}
+        </View> }
         <AtTabs current={this.state.current} tabList={tabList} onClick={this.handleClick.bind(this)}>
             <AtTabsPane current={this.state.current} index={0}>
                 <HomeWork
@@ -88,7 +88,9 @@ class LessonView extends Taro.PureComponent {
             </AtTabsPane>
             <AtTabsPane current={this.state.current} index={1}>
                 <Note
-                NoteList={this.props.noteList.notes}/>
+                NoteList={this.props.noteList.notes}
+                courseId = {this.$router.params.cid}
+                lessonId= {this.$router.params.lid}/>
             </AtTabsPane>
         </AtTabs>
       </View>

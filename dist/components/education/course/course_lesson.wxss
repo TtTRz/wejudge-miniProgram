@@ -1,0 +1,5 @@
+.second-content {
+  margin-left: 30rpx; }
+  .second-content .third-content {
+    margin-left: 20rpx; }
+

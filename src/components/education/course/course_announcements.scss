@@ -1,7 +1,16 @@
 .announce-view{
-  //min-height: 100%;
-  //background: #e8e9ea;
+
   .announce-card{
     margin-top: 50px;
+  }
+  .empty-content {
+    margin-top: 40%;
+    text-align: center;
+    color: #98999c;
+    font-size: 25px;
+
+    .empty-text {
+      margin-top: 40px;
+    }
   }
 }

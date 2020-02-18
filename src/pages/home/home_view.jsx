@@ -4,6 +4,7 @@ import Course from '../education/course/course_list'
 import TarBar from '../../components/widgets/tarbar'
 import Account from "../account/account_view";
 import {connect} from "@tarojs/redux";
+import './home_view.scss'
 
 
 const mapStateToProps = (state,props) => {
@@ -52,13 +53,13 @@ class HomeView extends Taro.PureComponent {
   };
   render() {
     return (
-      <View className='home-view' style='height:100%'>
+      <View className='home-view' >
         <View className='home-content'>
           {this.state.currentTab === 0 && <View className="home-view">
             {/*<Account/>*/}
           </View>
           }
-          {this.state.currentTab === 1 && <View className="course-view">
+          {this.state.currentTab === 1 && <View className="course-view" >
             <Course/>
           </View>
           }

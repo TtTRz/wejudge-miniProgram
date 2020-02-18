@@ -62,7 +62,7 @@ var LessonView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LessonView.__proto__ || Object.getPrototypeOf(LessonView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["$compid__31", "$compid__32", "$compid__33", "$compid__34", "$compid__35", "$compid__36", "mode", "dispatch", "videos", "asgnList", "noteList", "current"], _this.config = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LessonView.__proto__ || Object.getPrototypeOf(LessonView)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["$compid__34", "$compid__35", "$compid__36", "$compid__37", "$compid__38", "$compid__39", "mode", "dispatch", "videos", "asgnList", "noteList", "current"], _this.config = {
       enablePullDownRefresh: true
     }, _this.state = {
       mode: 'video'
@@ -118,67 +118,69 @@ var LessonView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       var __prefix = this.$prefix;
       ;
 
-      var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "$compid__31"),
+      var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "$compid__34"),
           _genCompid2 = _slicedToArray(_genCompid, 2),
-          $prevCompid__31 = _genCompid2[0],
-          $compid__31 = _genCompid2[1];
+          $prevCompid__34 = _genCompid2[0],
+          $compid__34 = _genCompid2[1];
 
-      var _genCompid3 = (0, _taroWeapp.genCompid)(__prefix + "$compid__32"),
+      var _genCompid3 = (0, _taroWeapp.genCompid)(__prefix + "$compid__35"),
           _genCompid4 = _slicedToArray(_genCompid3, 2),
-          $prevCompid__32 = _genCompid4[0],
-          $compid__32 = _genCompid4[1];
+          $prevCompid__35 = _genCompid4[0],
+          $compid__35 = _genCompid4[1];
 
-      var _genCompid5 = (0, _taroWeapp.genCompid)(__prefix + "$compid__33"),
+      var _genCompid5 = (0, _taroWeapp.genCompid)(__prefix + "$compid__36"),
           _genCompid6 = _slicedToArray(_genCompid5, 2),
-          $prevCompid__33 = _genCompid6[0],
-          $compid__33 = _genCompid6[1];
+          $prevCompid__36 = _genCompid6[0],
+          $compid__36 = _genCompid6[1];
 
-      var _genCompid7 = (0, _taroWeapp.genCompid)(__prefix + "$compid__34"),
+      var _genCompid7 = (0, _taroWeapp.genCompid)(__prefix + "$compid__37"),
           _genCompid8 = _slicedToArray(_genCompid7, 2),
-          $prevCompid__34 = _genCompid8[0],
-          $compid__34 = _genCompid8[1];
+          $prevCompid__37 = _genCompid8[0],
+          $compid__37 = _genCompid8[1];
 
-      var _genCompid9 = (0, _taroWeapp.genCompid)(__prefix + "$compid__35"),
+      var _genCompid9 = (0, _taroWeapp.genCompid)(__prefix + "$compid__38"),
           _genCompid10 = _slicedToArray(_genCompid9, 2),
-          $prevCompid__35 = _genCompid10[0],
-          $compid__35 = _genCompid10[1];
+          $prevCompid__38 = _genCompid10[0],
+          $compid__38 = _genCompid10[1];
 
-      var _genCompid11 = (0, _taroWeapp.genCompid)(__prefix + "$compid__36"),
+      var _genCompid11 = (0, _taroWeapp.genCompid)(__prefix + "$compid__39"),
           _genCompid12 = _slicedToArray(_genCompid11, 2),
-          $prevCompid__36 = _genCompid12[0],
-          $compid__36 = _genCompid12[1];
+          $prevCompid__39 = _genCompid12[0],
+          $compid__39 = _genCompid12[1];
 
       var tabList = [{ title: '作业' }, { title: '笔记' }];
       this.__props.videos && _taroWeapp.propsManager.set({
         "lessonVideo": this.__props.videos,
         "lessonId": this.$router.params.lid
-      }, $compid__31, $prevCompid__31);
+      }, $compid__34, $prevCompid__34);
       _taroWeapp.propsManager.set({
         "current": this.__state.current,
         "tabList": tabList,
         "onClick": this.handleClick.bind(this)
-      }, $compid__32, $prevCompid__32);
+      }, $compid__35, $prevCompid__35);
       _taroWeapp.propsManager.set({
         "current": this.__state.current,
         "index": 0
-      }, $compid__33, $prevCompid__33);
+      }, $compid__36, $prevCompid__36);
       _taroWeapp.propsManager.set({
         "asgnList": this.__props.asgnList
-      }, $compid__34, $prevCompid__34);
+      }, $compid__37, $prevCompid__37);
       _taroWeapp.propsManager.set({
         "current": this.__state.current,
         "index": 1
-      }, $compid__35, $prevCompid__35);
+      }, $compid__38, $prevCompid__38);
       _taroWeapp.propsManager.set({
-        "NoteList": this.__props.noteList.notes
-      }, $compid__36, $prevCompid__36);
+        "NoteList": this.__props.noteList.notes,
+        "courseId": this.$router.params.cid,
+        "lessonId": this.$router.params.lid
+      }, $compid__39, $prevCompid__39);
       Object.assign(this.__state, {
-        $compid__31: $compid__31,
-        $compid__32: $compid__32,
-        $compid__33: $compid__33,
         $compid__34: $compid__34,
         $compid__35: $compid__35,
-        $compid__36: $compid__36
+        $compid__36: $compid__36,
+        $compid__37: $compid__37,
+        $compid__38: $compid__38,
+        $compid__39: $compid__39
       });
       return this.__state;
     }

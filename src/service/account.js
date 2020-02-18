@@ -8,10 +8,14 @@ export const login = (payload) => {
     url: API.ACCOUNT.LOGIN,
     method: 'post',
     data: {
-      username: "xj@a.com",
-      password: "12345678",
+      // username: "xj@a.com",
+      // password: "12345678",
       // username: payload.username,
       // password: payload.password,
+      // username:'1901014002@wejudge.net',
+      // password:'12345678',
+      username:'xjfn26@gmail.com',
+      password:'xj0808@1222'
     },
   })
 };

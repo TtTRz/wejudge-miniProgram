@@ -1,15 +1,12 @@
 .note-view{
   .note-item{
     margin-top: 10px;
-    padding:30px;
+    padding:20px;
     display: block;
+    border-bottom: 1px solid #e8e9ea;
     .note-header{
-      .note-avatar{
-        display: flex;
         .note-title{
           margin-top:15px;
-          margin-left:40px;
-        }
       }
       .note-updatetime{
         float: right;
@@ -34,4 +31,21 @@
 
 
   }
+}
+
+.empty-content {
+  margin-top: 40%;
+  text-align: center;
+  color: #98999c;
+  font-size: 25px;
+
+  .empty-text {
+    margin-top: 40px;
+  }
+}
+
+.note-button{
+  margin-top: 5px;
+  bottom: 5px;
+  text-align: center;
 }
