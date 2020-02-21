@@ -1,7 +1,7 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="tabbar-view">
         <view class="at-row">
-            <view class="at-col-4" wx:for="{{TabList}}" wx:for-item="item" wx:for-index="index">
+            <view class="at-col-6" wx:for="{{TabList}}" wx:for-item="item" wx:for-index="index">
                 <view class="tabbar-item" bindtap="funPrivatehzzzz" data-e-tap-so="this" data-e-tap-a-a="{{index}}">
                     <view class="icon">
                         <view class="{{current === index ? item.iconNameCurrent : item.iconName}}"></view>

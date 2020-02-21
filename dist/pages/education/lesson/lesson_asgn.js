@@ -72,7 +72,7 @@ var LessonAsgn = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LessonAsgn.__proto__ || Object.getPrototypeOf(LessonAsgn)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "$compid__57", "current", "dispatch", "asgn"], _this.config = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = LessonAsgn.__proto__ || Object.getPrototypeOf(LessonAsgn)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "$compid__49", "current", "dispatch", "asgn"], _this.config = {
       enablePullDownRefresh: true
     }, _this.state = {
       current: 0
@@ -89,7 +89,6 @@ var LessonAsgn = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
   }, {
     key: 'componentWillMount',
     value: function componentWillMount() {
-      console.log("nid", this.props);
       this.props.dispatch({
         type: 'lesson/getNoteMessage',
         payload: {
@@ -115,23 +114,24 @@ var LessonAsgn = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_t
       var __prefix = this.$prefix;
       ;
 
-      var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "$compid__57"),
+      var _genCompid = (0, _taroWeapp.genCompid)(__prefix + "$compid__49"),
           _genCompid2 = _slicedToArray(_genCompid, 2),
-          $prevCompid__57 = _genCompid2[0],
-          $compid__57 = _genCompid2[1];
+          $prevCompid__49 = _genCompid2[0],
+          $compid__49 = _genCompid2[1];
 
+      console.log("nid", this.__props.asgn);
       var anonymousState__temp = formatTimeFromNow((0, _lodashEs.get)(this.__props.asgn, 'update_time'));
-      var anonymousState__temp2 = (0, _lodashEs.get)(this.prop.asgn, 'title');
+      var anonymousState__temp2 = (0, _lodashEs.get)(this.__props.asgn, 'title');
       var anonymousState__temp3 = (0, _filter.convertHtmlToText)((0, _lodashEs.get)(this.__props.asgn, 'content'));
       _taroWeapp.propsManager.set({
         "extra": anonymousState__temp,
         "title": anonymousState__temp2
-      }, $compid__57, $prevCompid__57);
+      }, $compid__49, $prevCompid__49);
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp,
         anonymousState__temp2: anonymousState__temp2,
         anonymousState__temp3: anonymousState__temp3,
-        $compid__57: $compid__57
+        $compid__49: $compid__49
       });
       return this.__state;
     }

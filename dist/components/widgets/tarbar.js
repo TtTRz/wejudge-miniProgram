@@ -48,11 +48,13 @@ var TabBar = (_temp2 = _class = function (_Taro$PureComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TabBar.__proto__ || Object.getPrototypeOf(TabBar)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["TabList", "__fn_onClick", "current", "onTabChange"], _this.TabList = [{
-      iconName: 'home-icon',
-      iconNameCurrent: 'home-icon-select',
-      title: '首页'
-    }, {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = TabBar.__proto__ || Object.getPrototypeOf(TabBar)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["TabList", "__fn_onClick", "current", "onTabChange"], _this.TabList = [
+    //     {
+    //   iconName: 'home-icon',
+    //   iconNameCurrent: 'home-icon-select',
+    //   title: '首页'
+    // },
+    {
       iconName: 'book-icon',
       iconNameCurrent: 'book-icon-select',
       title: '学习'

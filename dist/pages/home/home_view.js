@@ -64,7 +64,7 @@ var HomeView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_tem
       enablePullDownRefresh: true
     }, _this.state = {
       currentTab: 0
-    }, _this.state = {}, _this.handleTabChange = function (value) {
+    }, _this.handleTabChange = function (value) {
       _this.setState({
         currentTab: value
       });
@@ -76,7 +76,8 @@ var HomeView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_tem
     value: function _constructor() {
       _get(HomeView.prototype.__proto__ || Object.getPrototypeOf(HomeView.prototype), "_constructor", this).apply(this, arguments);
       this.state = {
-        current: 0
+        current: 0,
+        currentTab: 0
       };
       this.$$refs = new _taroWeapp2.default.RefsArray();
     }
@@ -105,7 +106,8 @@ var HomeView = (_dec = (0, _redux.connect)(mapStateToProps), _dec(_class = (_tem
           $prevCompid__6 = _genCompid4[0],
           $compid__6 = _genCompid4[1];
 
-      this.__state.currentTab === 2 && _taroWeapp.propsManager.set({
+      console.log("state", this.__state.currentTab);
+      this.__state.currentTab === 1 && _taroWeapp.propsManager.set({
         "accountMessage": this.__props.account.data
       }, $compid__5, $prevCompid__5);
       _taroWeapp.propsManager.set({

@@ -10,11 +10,11 @@ class TabBar extends Taro.PureComponent{
 
   };
   TabList=[
-      {
-    iconName: 'home-icon',
-    iconNameCurrent: 'home-icon-select',
-    title: '首页'
-  },
+  //     {
+  //   iconName: 'home-icon',
+  //   iconNameCurrent: 'home-icon-select',
+  //   title: '首页'
+  // },
   {
     iconName: 'book-icon',
     iconNameCurrent: 'book-icon-select',
@@ -30,7 +30,7 @@ class TabBar extends Taro.PureComponent{
         <View className='at-row'>
           {this.TabList.map((item, index) => {
             return (
-              <View className='at-col-4'>
+              <View className='at-col-6'>
                 <View className='tabbar-item' onClick={this.props.onTabChange.bind(this, index)}>
                   <View className='icon'>
                     <View className={this.props.current === index ? item.iconNameCurrent : item.iconName}></View>

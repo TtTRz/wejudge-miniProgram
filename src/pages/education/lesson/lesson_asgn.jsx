@@ -1,7 +1,6 @@
 import Taro from '@tarojs/taro'
 import { View,Picker } from '@tarojs/components'
 import {connect} from '@tarojs/redux'
-import PropTypes from 'prop-types';
 import { get } from 'lodash-es';
 import {AtList, AtIcon,AtCard} from "taro-ui";
 import moment from "moment";
@@ -43,7 +42,6 @@ class LessonAsgn extends Taro.PureComponent {
 
 
     componentWillMount() {
-        console.log("nid",this.props);
         this.props.dispatch({
             type: 'lesson/getNoteMessage',
             payload: {
@@ -66,18 +64,17 @@ class LessonAsgn extends Taro.PureComponent {
 
 
     render() {
+        console.log("nid",this.props.asgn);
         return (
             <View className='note-view'>
                 <View className='note-card' style='margin-top:30px;'>
                     <AtCard
                         extra={formatTimeFromNow(get(this.props.asgn,'update_time'))}
-                        title={get(this.prop.asgn,'title')}
+                        title={get(this.props.asgn,'title')}
                     >
                         {convertHtmlToText(get(this.props.asgn,'content'))}
                     </AtCard>
                 </View>
-
-                }
             </View>
         )
     }

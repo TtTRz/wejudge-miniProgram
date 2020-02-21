@@ -1,6 +1,7 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="note-view">
         <view class="note-card" style="margin-top:30px;">
-            <at-card compid="{{$compid__57}}">{{anonymousState__temp3}}</at-card>
-        </view>}</view>
+            <at-card compid="{{$compid__49}}">{{anonymousState__temp3}}</at-card>
+        </view>
+    </view>
 </block>
